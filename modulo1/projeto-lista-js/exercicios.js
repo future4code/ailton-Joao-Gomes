@@ -35,9 +35,8 @@ function imprimeIdade() {
 // EXERCÍCIO 03
 function calculaIMC(peso, altura) {
   // implemente sua lógica aqui
-  // let pesoUsuario = Number(prompt("Fale seu peso em kg:"))
-  // let alturaUsuario = Number(prompt("Digite sua altura em metros:"))
-  // return pesoUsuario/(alturaUsuario*alturaUsuario)
+  IMC = peso / (altura*altura)
+   return IMC
 }
 
 
@@ -106,18 +105,28 @@ function trocaPrimeiroEUltimo(array) {
 
 // EXERCÍCIO 12
 function checaIgualdadeDesconsiderandoCase(string1, string2) {
-  // implemente sua lógica aqui
-  // let formata1 = string1.toUpperCase
-  // let formata2 = string2.toUpperCase
-  return string1.toUpperCase === string2.toUpperCase
+ // implemente sua lógica aqui
+   let formata1 = string1.toUpperCase()
+   let formata2 = string2.toUpperCase()
+  return formata1 === formata2
 
 }
 
 // EXERCÍCIO 13
 function checaRenovacaoRG() {
   // implemente sua lógica aqui
-
+  let anoAtual = Number(prompt("Qual o ano atual?"))
+  let anoDeNascimento = Number(prompt("Qual o ano de nascimento?"))
+  let anoCarteira = Number(prompt("Qual o ano de emissão da carteira de identidade?"))
+  let para20Anos = (anoAtual - anoDeNascimento) <= 20
+  let paraMaiorDe20 = ((anoAtual - anoDeNascimento) > 21) && ((anoAtual - anoDeNascimento) <= 50)
+  let paraAcimaDe50 = (anoAtual - anoDeNascimento) > 51
+  console.log()
+ 
 }
+
+
+console.log (paraEntre2050)
 
 // EXERCÍCIO 14
 function checaAnoBissexto(ano) {
