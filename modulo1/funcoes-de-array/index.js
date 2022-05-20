@@ -105,16 +105,11 @@ const produtos = [
 // })
 // console.log(arrayDoYpe)
 //e.
-// const novissimoArray = produtos.filter((item, index, array) => {
-//     return item.nome.includes("Ypê")
+const novissimoArray = produtos.filter((item, index, array) => {
+    return item.nome.includes("Ypê")
 
-// }).map((item, index, array) =>{
-//         const final = {
-//             Nome: item.nome,
-//             Preço: item.preco
-//         }
-//         console.log(`Compre ${final.Nome} por ${final.Preço}`)
-// })
-
-
+}).map((item, index, array) =>{
+        return(`Compre ${item.nome} por ${item.preco}`)
+})
+console.log(novissimoArray)
 
