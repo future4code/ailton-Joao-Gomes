@@ -84,18 +84,31 @@ function retornaObjetoEntreDoisNumeros(num1, num2) {
 
 // EXERCÍCIO 08
 function retornaNPrimeirosPares(n) {
-    
-   
+    let arrayPares = []
+    for (let i = 0; i < n; i++){
+        arrayPares.push(i*2)
+    }
+   return arrayPares
 }
 
 // EXERCÍCIO 09
 function classificaTriangulo(ladoA, ladoB, ladoC) {
-
+    let tipoTriangulo
+if (ladoA === ladoB && ladoC === ladoA && ladoB === ladoC){
+    return tipoTriangulo = "Equilátero"
+} else if (ladoA != ladoB && ladoC != ladoA && ladoB != ladoC){
+    return tipoTriangulo = "Escaleno"
+} else{
+    return tipoTriangulo = "Isósceles"
+}
 }
 
 // EXERCÍCIO 10
 function retornaSegundoMaiorESegundoMenor(array) {
-  
+    let novoArray = []
+    for (let i = 0; i < array.length; i++){
+        
+    }
 }
 
 // EXERCÍCIO 11
