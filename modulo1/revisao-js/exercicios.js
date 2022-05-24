@@ -104,36 +104,58 @@ if (ladoA === ladoB && ladoC === ladoA && ladoB === ladoC){
 }
 
 // EXERCÍCIO 10
+function compararNumeros(a, b) {
+    return a - b;
+}
 function retornaSegundoMaiorESegundoMenor(array) {
+    let tamanhoArray = array.length
+    array.sort(compararNumeros)
     let novoArray = []
-    for (let i = 0; i < array.length; i++){
-        
-    }
+    novoArray.push(array[tamanhoArray -2], array[1])
+    return novoArray
 }
 
 // EXERCÍCIO 11
 function retornaChamadaDeFilme(filme) {
-   
+    return (`Venha assistir ao filme ${filme.nome}, de ${filme.ano}, dirigido por ${filme.diretor} e estrelado por ${filme.atores[0]}, ${filme.atores[1]}, ${filme.atores[2]}, ${filme.atores[3]}.`)
 }
 
 // EXERCÍCIO 12
 function retornaPessoaAnonimizada(pessoa) {
-   
+    let pessoaAnonima = {...pessoa}
+    pessoaAnonima.nome = "ANÔNIMO"
+   return pessoaAnonima
 }
 
 // EXERCÍCIO 13A
 function retornaPessoasAutorizadas(pessoas) {
-   
+   let pessoasQuePodem = []
+   for (let i = 0; i < pessoas.length; i++){
+       if (pessoas[i].idade > 14 && pessoas[i].idade < 60 && pessoas[i].altura >= 1.50){
+            pessoasQuePodem.push(pessoas[i])
+           
+       }
+   }
+   return pessoasQuePodem
+
 }
 
 // EXERCÍCIO 13B
 function retornaPessoasNaoAutorizadas(pessoas) {
-  
+    let pessoasQueNaoPodem = []
+    for (const item of pessoas) {
+        if (item.idade <= 14 || item.idade >= 60 || item.altura < 1.50){
+            pessoasQueNaoPodem.push(item)
+        }
+  }
+  return pessoasQueNaoPodem
 }
 
 // EXERCÍCIO 14
 function retornaContasComSaldoAtualizado(contas) {
-
+    for (let i = 0; i < contas.length; i++){
+        
+    }
 }
 
 // EXERCÍCIO 15A
