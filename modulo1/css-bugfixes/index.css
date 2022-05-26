@@ -139,6 +139,11 @@ td button:hover {
     height: auto;
 }
 
+.container-do-search input {
+    border: none;
+    border-bottom: 1.5px solid;
+}
+
 #back-button {
     background-color: white;
     width: 100px;
