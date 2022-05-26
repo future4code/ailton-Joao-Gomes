@@ -107,6 +107,13 @@ table td {
     text-align: center;
 }
 
+table td img {
+    max-width:100px;
+    max-height:75px;
+    width: auto;
+    height: auto;
+}
+
 td button {
     background-color: #fadf63;
     width: 150px;
