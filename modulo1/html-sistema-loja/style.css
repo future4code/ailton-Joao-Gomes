@@ -1,4 +1,5 @@
 .cabeçalho{
+    width: 100%;
     text-align: center;
     background-color: #62bf7b;
     margin: 0;
@@ -13,7 +14,6 @@ nav a{
 }
 .rodape{
     margin-top: 25px;
-    width: 100%;
     background-color: #62bf7b;
     padding: 15px;
     border: dotted black;
@@ -53,4 +53,23 @@ table img{
     width: auto;
     height: auto;
     margin-left: 15px;
+}
+
+main img {
+    margin: 70px;
+    max-width:400px;
+    max-height:300px;
+    width: auto;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+}
+label, input{
+    margin-bottom: 20px;
+}
+
+li{
+    margin-bottom: 10px;
 }
