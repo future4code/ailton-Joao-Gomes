@@ -1,14 +1,24 @@
 * {
     margin: 0;
     padding: 0;
+    font-family:sans-serif
+}
+
+body {
+    background-image: linear-gradient(white,#9bacfc);
 }
 
 .cabecalho-do-site {
     background-color: #5271FF;
     text-align: center;
+    position: sticky;
+    top: 0;
+    border-bottom: 1px solid;
+    padding-bottom: 10px;
 }
 
 .cabecalho-do-site img {
+    display: block;
     width: 100px;
     height: auto;
     margin: 0 auto;
@@ -16,14 +26,16 @@
 
 .cabecalho-do-site p {
     display: inline;
+    margin: 0 10px;
 }
 
 .principal-do-index {
     background-color: #5271FF;
     width: 25%;
-    height: 100vw;
+    height: 690px;
+    border-right: 1px solid;
 }
-.principal-do-index img {
+#foto-minha {
     width: 200px;
     height: auto;
     border-radius: 70%;
@@ -31,7 +43,75 @@
     margin-top: 13%;
 }
 
-.principal-do-index p {
-    margin-top: 40px;
+.principal-do-index h3 {
     text-align: center;
+    margin-top: 50px;
+}
+
+.principal-do-index p {
+    text-align: justify;
+    margin: 40px 20px;
+    font-weight: 550;
+}
+
+.imagens-tecnologias {
+    width: 64px;
+    height: auto;
+    margin-left: 10%;
+    margin-top: 13%;
+}
+
+#sobre-mim {
+    background-color: #F6B8DE;
+    border: 1px solid;
+    margin-top: -175%;
+    width: 60vw;
+    margin-left: 135%;
+    text-align: center;
+    padding: 5px 0;
+}
+
+#historico-profissional{
+    margin-left: 135%;
+    width: 60vw;
+    text-align: center;
+    background-color: #F6B8DE;
+    border: 1px solid;
+    padding: 5px 0;
+}
+
+.secundario-do-index p {
+    margin-left: 135%;
+    width: 60vw;
+    text-align: left;
+    /* border-bottom: 1px solid; */
+}
+
+.descricao-ensino{
+    color: rgb(41, 40, 40);
+}
+
+.segunda-parte{
+    background-color:#5271FF;
+    border-top: 1px solid;
+    padding-bottom: 70px;
+}
+
+.segunda-parte h2 {
+    text-align: center;
+    margin-bottom: -10%;
+    margin-top: 20px;
+}
+
+.segunda-parte img {
+    margin-left: 20.75vw;
+    width: 64px;
+    height: auto;
+    margin-top: 15%;
+}
+
+.segunda-parte img:hover{
+    transition: transform .5s ease;
+    transform: scale(1.3);
+    
 }
