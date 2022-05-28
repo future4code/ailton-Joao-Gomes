@@ -1,0 +1,37 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.cabecalho-do-site {
+    background-color: #5271FF;
+    text-align: center;
+}
+
+.cabecalho-do-site img {
+    width: 100px;
+    height: auto;
+    margin: 0 auto;
+}
+
+.cabecalho-do-site p {
+    display: inline;
+}
+
+.principal-do-index {
+    background-color: #5271FF;
+    width: 25%;
+    height: 100vw;
+}
+.principal-do-index img {
+    width: 200px;
+    height: auto;
+    border-radius: 70%;
+    margin-left: 22%;
+    margin-top: 13%;
+}
+
+.principal-do-index p {
+    margin-top: 40px;
+    text-align: center;
+}
