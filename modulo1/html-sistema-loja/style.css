@@ -1,0 +1,75 @@
+.cabeçalho{
+    width: 100%;
+    text-align: center;
+    background-color: #62bf7b;
+    margin: 0;
+    border: dotted black;
+}
+nav {
+    text-align: center;
+    margin-top: 30px;
+}
+nav a{
+    padding: 10px;
+}
+.rodape{
+    margin-top: 25px;
+    background-color: #62bf7b;
+    padding: 15px;
+    border: dotted black;
+}
+.rodape p{
+    display: inline;
+}
+.rodape img{
+    max-width:50px;
+    max-height:37.5px;
+    width: auto;
+    height: auto;
+    margin-left: 15px;
+}
+#titulo-estoque{
+    text-align: center;
+    padding: 15px;
+}
+table{
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+}
+table, th, td {
+    border: 1px solid;
+  }
+table th {
+    padding: 10px;
+    background-color: #8cf7b6;
+}
+table td {
+    text-align: center;
+}
+table img{
+    max-width:200px;
+    max-height:150px;
+    width: auto;
+    height: auto;
+    margin-left: 15px;
+}
+
+main img {
+    margin: 70px;
+    max-width:400px;
+    max-height:300px;
+    width: auto;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+}
+label, input{
+    margin-bottom: 20px;
+}
+
+li{
+    margin-bottom: 10px;
+}
