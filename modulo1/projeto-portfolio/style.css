@@ -1,11 +1,13 @@
 * {
     margin: 0;
     padding: 0;
-    font-family:sans-serif
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
 
 body {
-    background-image: linear-gradient(white,#9bacfc);
+    background-image: linear-gradient(rgb(205, 212, 231),#8ea2fa);
+    height: 125vw;
+    border-bottom: 1px solid;
 }
 
 .cabecalho-do-site {
@@ -22,25 +24,37 @@ body {
     width: 100px;
     height: auto;
     margin: 0 auto;
+    margin-left: 625px;
+    padding-top: 10px;
 }
 
 .cabecalho-do-site p {
     display: inline;
     margin: 0 10px;
+    color: black;
+}
+
+.cabecalho-do-site a {
+    text-decoration: none;
+}
+
+.cabecalho-do-site a:hover {
+    text-decoration: underline;
 }
 
 .principal-do-index {
-    background-color: #5271FF;
+    background-color: #708afa;
     width: 25%;
-    height: 690px;
+    height: 1568px;
     border-right: 1px solid;
 }
 #foto-minha {
-    width: 200px;
-    height: auto;
+    width: 240px;
+    height: 240px;
     border-radius: 70%;
-    margin-left: 22%;
+    margin-left: 15%;
     margin-top: 13%;
+    border: 1px solid;
 }
 
 .principal-do-index h3 {
@@ -54,17 +68,18 @@ body {
     font-weight: 550;
 }
 
-.imagens-tecnologias {
+.imagens {
     width: 64px;
     height: auto;
     margin-left: 10%;
     margin-top: 13%;
+    /* box-shadow: 0 3px 10px rgb(0 0 0 / 0.2); */
 }
 
 #sobre-mim {
     background-color: #F6B8DE;
     border: 1px solid;
-    margin-top: -175%;
+    margin-top: -435%;
     width: 60vw;
     margin-left: 135%;
     text-align: center;
@@ -80,6 +95,33 @@ body {
     padding: 5px 0;
 }
 
+#certificados {
+    margin-left: 135%;
+    text-align: center;
+    width: 60vw;
+    background-color: #F6B8DE;
+    border: 1px solid;
+    padding: 5px 0;
+}
+
+#softskills-titulo {
+    margin-left: 135%;
+    text-align: center;
+    width: 60vw;
+    background-color: #F6B8DE;
+    border: 1px solid;
+    padding: 5px 0; 
+}
+
+#idiomas {
+    margin-left: 135%;
+    text-align: center;
+    width: 60vw;
+    background-color: #F6B8DE;
+    border: 1px solid;
+    padding: 5px 0; 
+}
+
 .secundario-do-index p {
     margin-left: 135%;
     width: 60vw;
@@ -87,31 +129,162 @@ body {
     /* border-bottom: 1px solid; */
 }
 
-.descricao-ensino{
+.secundario-do-index h2 {
+    /* color: #022ef3; */
+}
+
+#descricao{
     color: rgb(41, 40, 40);
+    margin-top: -20px;
 }
 
-.segunda-parte{
-    background-color:#5271FF;
+.contato {
     border-top: 1px solid;
-    padding-bottom: 70px;
-}
-
-.segunda-parte h2 {
     text-align: center;
-    margin-bottom: -10%;
-    margin-top: 20px;
 }
 
-.segunda-parte img {
-    margin-left: 20.75vw;
-    width: 64px;
-    height: auto;
-    margin-top: 15%;
-}
-
-.segunda-parte img:hover{
+#efeitos-imagens-projetos:hover {
     transition: transform .5s ease;
     transform: scale(1.3);
+}
+
+#redes {
+    margin-left: 18%;
+}
+
+#redes:hover {
+    transition: transform .5s ease;
+    transform: scale(1.3);
+}
+
+form {
     
+    margin-left: 25px;
+    margin-top: 20px;
+
+}
+
+form label {
+    margin-top: 20px;
+    margin-left: -10%;
+    display: block;
+    text-align: center;
+}
+
+form input {
+    margin-top: 15px;
+    width: 200px;
+    margin-left: 13.5%;
+    border: 1px solid;
+}
+
+form textarea {
+    margin-top: 15px;
+    border: 1px solid;
+}
+
+form button {
+    width: 100px;
+    height: auto ;
+    margin-top: 30px;
+    margin-left: 30%;
+    border: 1px solid;
+}
+
+form button:hover {
+    /* transition: transform .5s ease; */
+    transform: scale(1.15);
+}
+
+footer {
+    background-color:#5271FF;
+    width: 400%;
+    margin-top: -12px;
+    border-bottom: 1px solid;
+}
+
+footer img {
+    width: 100px;
+    height: auto;
+    text-align: center;
+    display: block;
+    margin-left: 622px;
+    padding-top: 10px;
+}
+
+footer p {
+    display: inline;
+    text-align: center;    
+    color: #F6B8DE;
+}
+
+/* //////////////////////////////////////////////// */
+
+.corpo-blackjack {
+    height: 70vw;
+}
+
+.paginas-secundarias {
+    text-align: center;
+}
+
+.paginas-secundarias img {
+    width: 64px;
+    height: auto;
+    margin-top: 50px;
+    margin-left: 40px;   
+}
+
+.paginas-secundarias h4 {
+    margin-top: 40px;
+    margin-left: 590px;
+    border-bottom: 1px solid;
+    width: 200px;
+}
+
+#imagem-blackjack {
+    width: 550px;
+    height: auto;
+    border: 1px solid;
+    display: block;
+    margin-left: 31%;
+}
+
+#imagem-blackjack:hover {
+    transition: transform .5s ease;
+    transform: scale(1.1);
+}
+
+.paginas-secundarias p {
+    margin-top: 40px;
+    margin-left:  90px;
+    margin-right: 90px;
+    text-align: justify;
+}
+
+#imagem-tecnologia-utilizada:hover {
+    transition: transform .5s ease;
+    transform: scale(1.3);
+}
+
+/* /////////////////////////////////////////////////////////////// */
+
+.corpo-lojinha {
+    height: 90vw;
+}
+
+#logo-principal-pagina-lojinha {
+    margin-left: 20px;
+}
+
+#imagem-lojinha {
+    width: 550px;
+    height: auto;
+    border: 1px solid;
+    display: inline;
+}
+
+#imagem-lojinha:hover {
+    transition: transform .5s ease;
+    transform: scale(1.15);
 }
