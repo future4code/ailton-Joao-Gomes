@@ -1,7 +1,6 @@
-
-import './App.css';
 import React from 'react';
-import Post from './components.Post'
+import './App.css';
+
 
 class App extends React.Component {
 
