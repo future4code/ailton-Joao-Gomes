@@ -1,6 +1,7 @@
 
 import './App.css';
 import React from 'react';
+import Post from './components.Post'
 
 class App extends React.Component {
 
@@ -36,7 +37,8 @@ class App extends React.Component {
       <div className="containerPrincipal">
         <div className="caixaMensagens">
           <div className="caixinhaMensagens">
-
+              {this.state.usuarioInput}
+              {this.state.mensagemInput}
           </div>
           
         </div>
