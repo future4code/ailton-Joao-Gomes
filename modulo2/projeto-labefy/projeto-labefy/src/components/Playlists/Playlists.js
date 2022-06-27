@@ -17,10 +17,10 @@ export default class Playlists extends React.Component {
                     <p>{playlist.name}</p>
                 </ContainerPlaylistItens>
                 <ContainerPlaylistItens>
-                    <p onClick={this.props.showScreenOnClick}>editar</p>
+                    <p onClick={() => this.props.showScreenOnClick(playlist.name, playlist.id)}>Ver detalhes</p>
                 </ContainerPlaylistItens>
                 <ContainerPlaylistItens>
-                    <p>excluir</p>
+                    <p onClick={()=> this.props.deletePlaylist(playlist.id)}>excluir</p>
                 </ContainerPlaylistItens>
             </ContainerPlaylist>
         )
