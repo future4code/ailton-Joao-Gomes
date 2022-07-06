@@ -36,3 +36,5 @@ export const ImgPerfil = styled.img `
 width: 200px;
 height: 200px;
 `
+export const CardChoice = styled.div `
+`

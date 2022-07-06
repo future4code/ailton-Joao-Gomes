@@ -6,6 +6,7 @@ import { CardGeral } from './styled';
 import { CardHeader } from './styled';
 import { CardPerfil } from './styled';
 import { ImgPerfil } from './styled';
+import { CardChoice } from './styled';
 import axios from 'axios';
 
 export default function FirstScreen(props) {
@@ -23,6 +24,17 @@ export default function FirstScreen(props) {
     getProfileToChoose()
   },[])
   
+
+  const liked = () => {
+    const body = {
+      "id": profile.id,
+      "choice": true
+    }
+    axios.post("https://us-central1-missao-newton.cloudfunctions.net/astroMatch/joaozang/choose-person", body
+    ).then((response) => {
+      console.log("Curtido")
+    })
+  }
   
   return (
     
@@ -30,17 +42,22 @@ export default function FirstScreen(props) {
         
         <CardGeral>
 
-          <CardHeader>
-            astromatch
-            <button onClick={props.goToMatchScreen}>Tela de Match</button>
-          </CardHeader>
+            <CardHeader>
+              astromatch
+              <button onClick={props.goToMatchScreen}>Tela de Match</button>
+            </CardHeader>
 
-          <CardPerfil>
-          <ImgPerfil src={profile.photo}/>
-          <p>{profile.name}</p>
-          <p>{profile.age}</p>
-          <p>{profile.bio}</p>
-          </CardPerfil>
+            <CardPerfil>
+            <ImgPerfil src={profile.photo}/>
+            <p>{profile.name}</p>
+            <p>{profile.age}</p>
+            <p>{profile.bio}</p>
+            </CardPerfil>
+
+            <CardChoice>
+              <button onClick={liked}>like</button>
+              <button>dislike</button>
+            </CardChoice>
 
         </CardGeral>
         
