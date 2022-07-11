@@ -7,6 +7,7 @@ background-color: grey;
 display: flex;
 align-items: center;
 justify-content: center;
+flex-direction: column;
 `
 export const CardGeral = styled.div `
 width: 40vw;
@@ -17,7 +18,7 @@ background-color: white;
 `
 export const CardHeader = styled.div `
 width: 100%;
-height: 14%;
+height: 15%;
 border-bottom: 1px solid black;
 display: flex;
 align-items: center;
@@ -26,15 +27,38 @@ justify-content: center;
 export const CardPerfil = styled.div `
 width: 100%;
 height: 70%;
-background-color: lightgreen;
+background-image: url(${props=>props.photo});
+background-size: cover;
+display: flex;
+justify-content: end;
+align-items: center;
+flex-direction: column;
+color: white;
+`
+
+export const PStyled = styled.div `
+
+width: 100%;
+/* background: black; */
+background-image:linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 1));
+h1,h2,h3{
+    margin-left: 20px;
+}
+    
+`
+
+export const CardLoading = styled.div `
+width: 100%;
+height: 70%;
 display: flex;
 justify-content: center;
 align-items: center;
-flex-direction: column;
 `
-export const ImgPerfil = styled.img `
-width: 200px;
-height: 200px;
-`
+
 export const CardChoice = styled.div `
+height: 15%;
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: space-around;
 `
