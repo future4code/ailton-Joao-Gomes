@@ -1,5 +1,30 @@
 import logo from './logo.svg';
 import './App.css';
+<<<<<<< HEAD
+
+
+
+
+
+
+
+
+class App extends React.Component {
+
+  
+  
+  
+  
+  render(){
+   
+   
+    return (
+      <div className="App">
+        
+      </div>
+    );
+}
+=======
 import React from 'react';
 import { Etapa1 } from './components/Etapa1';
 import { Etapa2 } from './components/Etapa2';
@@ -62,5 +87,6 @@ class App extends React.Component {
       </ContainerPrincipal>
     );
   }
+>>>>>>> 8a5ccfad38677ec7182b55cd5391a8a05f92972e
 }
 export default App;

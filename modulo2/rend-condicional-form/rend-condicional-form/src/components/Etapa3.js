@@ -1,3 +1,23 @@
+<<<<<<< HEAD
+
+class Etapa3 extends React.Component {
+
+  
+  
+  
+  
+    render(){
+     
+     
+      return (
+        <div>
+          
+        </div>
+      );
+  }
+  }
+  export default App;
+=======
 import React from "react";
 import PerguntaAberta from "./PerguntaAberta";
 import styled from "styled-components";
@@ -43,4 +63,5 @@ export class Etapa3 extends React.Component {
     }
   }
   
+>>>>>>> 8a5ccfad38677ec7182b55cd5391a8a05f92972e
   
