@@ -7,9 +7,9 @@ export default function HomePage() {
 
   const navigate = useNavigate()
 
-  const goToListPage = () => {
-    navigate("/listtrippage")
-  }
+  const goTo= (page) => {
+    navigate(`${page}`)
+}
 
     return (
       <div >
@@ -17,7 +17,10 @@ export default function HomePage() {
         <p>homepage</p>
 
 
-        <button onClick={goToListPage}>List Page</button>
+        <button onClick={()=>goTo("trips/list")}>List Page</button>
+        <button onClick={()=>goTo("trips/application")}>Application form page</button>
+        <button onClick={()=>goTo("admin/trips/homepage")}>Admin Home page</button>
+        <button onClick={()=>goTo("admin/trips/:id")}>Admin Trip Detatils page</button>
       </div>
     );
   }

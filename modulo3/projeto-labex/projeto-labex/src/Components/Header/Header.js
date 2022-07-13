@@ -33,7 +33,7 @@ export default function Header() {
             <ContainerMenu>
 
                 <ContainerOptions onClick={()=>goTo("/")}><p>Home</p></ContainerOptions>
-                <ContainerOptions onClick={()=>goTo("listtrippage")}><p>Viagens</p></ContainerOptions>
+                <ContainerOptions onClick={()=>goTo("trips/list")}><p>Viagens</p></ContainerOptions>
                 <ContainerOptions><p>Sobre Nós</p></ContainerOptions>
                 <ContainerOptions><p>Contato</p></ContainerOptions>
 
