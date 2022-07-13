@@ -59,9 +59,39 @@ display: flex;
 align-items: center;
 justify-content: space-around;
 background-color: #F8CECC;
+cursor: pointer;
+:hover{
+    background-color: white;
+}
 
 `
 export const IconLoginStyle = styled.img `
 width: 40px;
 height: 40px;
+`
+
+export const LoginPopUp = styled.div `
+position: absolute;
+width: 300px;
+height: 220px;
+top: 130px;
+right: 40px;
+background-color: #DAE8FC;
+border: 1px solid black;
+border-radius: 20px;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: space-around;
+`
+export const LoginInfoContainer = styled.div `
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 20px;
+`
+export const LoginInput = styled.input `
+padding: 3%;
+`
+export const ButtonLoginEnter = styled.button `
 `
