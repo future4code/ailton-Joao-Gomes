@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../Header/Header"; 
+import Footer from "../Footer/Footer";
 
 
 export default function HomePage() {
@@ -21,6 +22,7 @@ export default function HomePage() {
         <button onClick={()=>goTo("trips/application")}>Application form page</button>
         <button onClick={()=>goTo("admin/trips/homepage")}>Admin Home page</button>
         <button onClick={()=>goTo("admin/trips/:id")}>Admin Trip Detatils page</button>
+        <Footer/>
       </div>
     );
   }
