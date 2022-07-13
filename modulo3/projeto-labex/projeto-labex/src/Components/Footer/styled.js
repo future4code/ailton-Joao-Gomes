@@ -1,10 +1,11 @@
 import styled from "styled-components";
 
 export const Container = styled.div `
-width: 100vw;
+width: 100%;
 height: 150px;
 background-color: #B1DDF0;
 display: flex;
+border-top: 1px solid black;
 `
 export const ContainerLeft = styled.div`
 width: 35%;
@@ -63,7 +64,7 @@ cursor: pointer;
 transition: 0.5s;
 :hover{
    
-    background-color: #BDBDBD;
+    background-color: #8050A3;
     border-radius: 100%;
 }
 `

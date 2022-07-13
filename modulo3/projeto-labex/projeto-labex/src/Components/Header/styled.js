@@ -1,12 +1,13 @@
 import styled from "styled-components";
 
 export const Container = styled.div `
-width: 100vw;
+width: 100%;
 height: 200px;
 background-color: #BDBDBD;
 display: flex;
 align-items: center;
 justify-content: space-around;
+border-bottom: 1px solid black;
 `
 
 export const ContainerLogo = styled.div`
@@ -33,9 +34,11 @@ align-items: center;
 export const ContainerOptions = styled.div`
 width: 20%;
 border: 1px solid black;
+background-color: #D0CEE2;
 border-radius: 20px;
 text-align: center;
 cursor: pointer;
+transition: 0.3s;
 :hover{
     background-color: white;
 }
@@ -60,6 +63,7 @@ align-items: center;
 justify-content: space-around;
 background-color: #F8CECC;
 cursor: pointer;
+transition: 0.3s;
 :hover{
     background-color: white;
 }
