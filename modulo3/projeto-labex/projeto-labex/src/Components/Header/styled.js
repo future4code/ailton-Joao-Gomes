@@ -32,11 +32,15 @@ justify-content: space-around;
 align-items: center;
 `
 export const ContainerOptions = styled.div`
-width: 20%;
+width: 15%;
+height: 20%;
 border: 1px solid black;
 background-color: #D0CEE2;
 border-radius: 20px;
 text-align: center;
+display: flex;
+justify-content: center;
+align-items: center;
 cursor: pointer;
 transition: 0.3s;
 :hover{
