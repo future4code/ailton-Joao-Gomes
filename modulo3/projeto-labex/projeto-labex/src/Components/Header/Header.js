@@ -3,19 +3,18 @@ import { ButtonLoginEnter, LoginInput, LoginInfoContainer, LoginPopUp, Container
 import Logo from '../img/labexlogo.png';
 import LoginIcon from '../img/loginicon.png';
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
 
 
-export default function Header() {
+export default function Header(props) {
 
     const [loginOpen, setLoginOpen] = useState(false)
     const [emailUser, setEmailUser] = useState("")
     const [passwordUser, setPasswordUser] = useState("")
-    const [savePassword, setSavePassword] = useState("")
-    const [saveEmail, setSaveEmail] = useState("")
-    const [loged, setLoged] = useState(true)
+    
+    
 
     const navigate = useNavigate()
   
@@ -29,9 +28,20 @@ export default function Header() {
         
     }
 
-    const adminAreaAdvice = () => {
-        window.alert("Você precisa fazer login primeiro.")
-    }
+    // const goToAdminArea = () => {
+    //     const token = localStorage.getItem("token")
+    //     if (token === ""){
+    //     window.alert("Você precisa fazer login primeiro.")
+    //     }else{
+    //     navigate("admin/trips/homepage")
+    //     }
+    // }
+    
+    // useEffect(() => {
+    //     window.localStorage.setItem("notLoged", true)
+    // }, []) 
+    
+    
 
     const onChangeEmail = (e) => {
         setEmailUser(e.target.value)
@@ -40,9 +50,11 @@ export default function Header() {
     const onChangePassword = (e) => {
         setPasswordUser(e.target.value)
     }
+
     
     const loginTry = async() => {
-        if (loged){
+         
+        if (props.notLoged === true){
         try {
             const body = {
                 email: emailUser,
@@ -50,17 +62,17 @@ export default function Header() {
             }
             const response = await axios.post("https://us-central1-labenu-apis.cloudfunctions.net/labeX/joao-gomes-ailton/login", body)
             window.localStorage.setItem("token", response.data.token)
-            setSaveEmail(emailUser)
-            setSavePassword(passwordUser)
+            window.localStorage.setItem("email", emailUser)
+            window.localStorage.setItem("password", passwordUser)
             setEmailUser("")
             setPasswordUser("")
-            setLoged(!loged)
-            // setLoginOpen(!loginOpen)
+            props.setNotLogedToReverse()
             window.alert("Login realizado com sucesso, seja bem vindo.")
         } catch (error){
             window.alert("Usuário não encontrado.")
             setEmailUser("")
             setPasswordUser("")
+            
         }
     } else {
         window.alert("Você já está logado, caso queira entrar em outra conta, faça Logout primeiro.")
@@ -70,21 +82,23 @@ export default function Header() {
     const logout = async() => {
         try {
             const body = {
-                email: saveEmail,
-                password: savePassword
+                email: localStorage.getItem("email"),
+                password: localStorage.getItem("password")
             }
             const response = await axios.post("https://us-central1-labenu-apis.cloudfunctions.net/labeX/joao-gomes-ailton/login", body)
-            setSaveEmail("")
-            setSavePassword("")
+            window.localStorage.setItem("email", "")
+            window.localStorage.setItem("password", "")
             window.localStorage.setItem("token", "")
-            setLoged(!loged)
+            props.setNotLogedToReverse()
             window.alert("Você deslogou.")
 
         } catch (error){
             window.alert("Você não está logado.")
+            
         }
     }
-    // console.log(tokenUser)
+    
+
     
       return (
         <Container>
@@ -99,7 +113,7 @@ export default function Header() {
                 <ContainerOptions onClick={()=>goTo("trips/list")}><p>Viagens</p></ContainerOptions>
                 <ContainerOptions><p>Sobre Nós</p></ContainerOptions>
                 <ContainerOptions><p>Contato</p></ContainerOptions>
-                <ContainerOptions onClick={adminAreaAdvice}><p>Área Admin</p></ContainerOptions>
+                <ContainerOptions ><p>Área Admin</p></ContainerOptions>
 
             </ContainerMenu>
 

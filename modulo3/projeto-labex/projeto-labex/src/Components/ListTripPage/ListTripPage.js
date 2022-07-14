@@ -5,7 +5,7 @@ import Footer from "../Footer/Footer";
 import { Container } from "./styled";
 
 
-export default function ListTripPage () {
+export default function ListTripPage (props) {
 
     const navigate = useNavigate()
 
@@ -14,7 +14,7 @@ export default function ListTripPage () {
 
     return (
       <div>
-        <Header/>
+        <Header notLoged={props.notLoged} setNotLogedToReverse={props.setNotLogedToReverse}/>
         <Container>
           
         </Container>

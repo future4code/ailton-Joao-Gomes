@@ -6,17 +6,17 @@ import { WelcomeText, Card, Container, MoonStyle, ContainerCard, ContainerMoon }
 import MoonGif from '../img/moongif.gif';
 
 
-export default function HomePage() {
+export default function HomePage(props) {
 
   const navigate = useNavigate()
 
   const goTo= (page) => {
     navigate(`${page}`)
 }
-
+  // console.log(props.notLoged)
     return (
       <div>
-        <Header/>
+        <Header notLoged={props.notLoged} setNotLogedToReverse={props.setNotLogedToReverse}/>
         {/* <button onClick={()=>goTo("trips/list")}>List Page</button>
         <button onClick={()=>goTo("trips/application")}>Application form page</button>
         <button onClick={()=>goTo("admin/trips/homepage")}>Admin Home page</button>
