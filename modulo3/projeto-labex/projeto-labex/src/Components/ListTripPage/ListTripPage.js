@@ -3,13 +3,13 @@ import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
-import { Container, ContainerTop, ContainerBottom, Title, TitleStyleP, ContainerTrips } from "./styled";
+import { ContainerTripUnitCenter, ContainerTripUnitLeft, ContainerTripUnitRight, Container, ContainerTop, ContainerBottom, Title, TitleStyleP, ContainerTrips, ContainerTripUnit } from "./styled";
 import { useState, useEffect } from "react";
 
 
 export default function ListTripPage (props) {
 
-    const [trips, setTrips] = useState()
+    const [allTrips, setAllTrips] = useState()
 
     useEffect(() => {
       getTrips()
@@ -18,7 +18,7 @@ export default function ListTripPage (props) {
     const getTrips = async() => {
       try{
         const response = await axios.get("https://us-central1-labenu-apis.cloudfunctions.net/labeX/joao-gomes-ailton/trips")
-        console.log(response.data.trips)
+        setAllTrips(response.data.trips)
       } catch(error){
 
       }
@@ -28,7 +28,7 @@ export default function ListTripPage (props) {
     const navigate = useNavigate()
 
     
-   
+   console.log(allTrips)
 
     return (
       <div>
@@ -43,7 +43,30 @@ export default function ListTripPage (props) {
                 
             <ContainerBottom>
                 <ContainerTrips>
+                    {allTrips?.map((trip,index) => {
+                      return(
+                        
+                        <ContainerTripUnit key={index}>
+                          
+                          <ContainerTripUnitLeft>
+                            <p>{trip.name}</p>
+                            <p>Onde: {trip.planet}</p>
 
+                          </ContainerTripUnitLeft>
+                          <ContainerTripUnitCenter>
+                            <p>{trip.description}</p>
+
+                          </ContainerTripUnitCenter>
+                          <ContainerTripUnitRight>
+                            <p>Data: {trip.date}</p>
+                            <p>Dias: {trip.durationInDays}</p>
+
+                          </ContainerTripUnitRight>
+
+                        </ContainerTripUnit>
+                        
+                      )
+                    })}
                 </ContainerTrips>
             </ContainerBottom>
 

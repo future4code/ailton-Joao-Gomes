@@ -94,7 +94,7 @@ export default function Header(props) {
             window.localStorage.setItem("token", "")
             props.setNotLogedToReverse()
             window.alert("Você deslogou.")
-
+            goTo("/")
         } catch (error){
             window.alert("Você não está logado.")
             

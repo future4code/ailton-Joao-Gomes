@@ -1,13 +1,12 @@
 import React from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { useEffect, useHistory } from "react";
+import { useEffect } from "react";
 import Header from "../Header/Header"; 
 
 
 export default function AdminHomePage(props) {
 
-    // const history = useHistory()
 
     const navigate = useNavigate()
 
@@ -15,11 +14,15 @@ export default function AdminHomePage(props) {
         navigate(-1)
     }
 
+    const goTo = (page) => {
+      navigate(`${page}`)
+  }
+
     useEffect(() => {
       const token = localStorage.getItem("token")
       if (token === ""){
-        console.log("nao esta loagado")
-        // history.push('trips/list')
+        console.log("nao esta logado")
+        goTo("/")
       }else {
         console.log("esta logado")
       }
