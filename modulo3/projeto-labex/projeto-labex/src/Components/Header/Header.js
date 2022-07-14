@@ -28,14 +28,14 @@ export default function Header(props) {
         
     }
 
-    // const goToAdminArea = () => {
-    //     const token = localStorage.getItem("token")
-    //     if (token === ""){
-    //     window.alert("Você precisa fazer login primeiro.")
-    //     }else{
-    //     navigate("admin/trips/homepage")
-    //     }
-    // }
+    const goToAdminArea = () => {
+        const token = localStorage.getItem("token")
+        if (token === ""){
+        window.alert("Você precisa fazer login primeiro.")
+        }else{
+        navigate("admin/trips/homepage")
+        }
+    }
     
     // useEffect(() => {
     //     window.localStorage.setItem("notLoged", true)
@@ -68,6 +68,7 @@ export default function Header(props) {
             setPasswordUser("")
             props.setNotLogedToReverse()
             window.alert("Login realizado com sucesso, seja bem vindo.")
+            goTo("admin/trips/homepage")
         } catch (error){
             window.alert("Usuário não encontrado.")
             setEmailUser("")
@@ -76,6 +77,8 @@ export default function Header(props) {
         }
     } else {
         window.alert("Você já está logado, caso queira entrar em outra conta, faça Logout primeiro.")
+        setEmailUser("")
+        setPasswordUser("")
     }
     }
 
@@ -98,7 +101,7 @@ export default function Header(props) {
         }
     }
     
-
+        
     
       return (
         <Container>
@@ -113,7 +116,7 @@ export default function Header(props) {
                 <ContainerOptions onClick={()=>goTo("trips/list")}><p>Viagens</p></ContainerOptions>
                 <ContainerOptions><p>Sobre Nós</p></ContainerOptions>
                 <ContainerOptions><p>Contato</p></ContainerOptions>
-                <ContainerOptions ><p>Área Admin</p></ContainerOptions>
+                <ContainerOptions onClick={goToAdminArea}><p>Área Admin</p></ContainerOptions>
 
             </ContainerMenu>
 
