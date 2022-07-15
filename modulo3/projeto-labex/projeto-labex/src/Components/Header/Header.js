@@ -33,7 +33,7 @@ export default function Header(props) {
         if (token === ""){
         window.alert("Você precisa fazer login primeiro.")
         }else{
-        navigate("admin/trips/homepage")
+        navigate("/admin/trips/homepage")
         }
     }
     
@@ -113,7 +113,7 @@ export default function Header(props) {
             <ContainerMenu>
 
                 <ContainerOptions onClick={()=>goTo("/")}><p>Home</p></ContainerOptions>
-                <ContainerOptions onClick={()=>goTo("trips/list")}><p>Viagens</p></ContainerOptions>
+                <ContainerOptions onClick={()=>goTo("/trips/list")}><p>Viagens</p></ContainerOptions>
                 <ContainerOptions><p>Sobre Nós</p></ContainerOptions>
                 <ContainerOptions><p>Contato</p></ContainerOptions>
                 <ContainerOptions onClick={goToAdminArea}><p>Área Admin</p></ContainerOptions>

@@ -1,18 +1,17 @@
 import React from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
-import Header from "../Header/Header"; 
-
+import { useEffect, useState } from "react";
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
+import { Container, TripNameContainer, DeleteStyle, TitleContainers, Title, Trip, ContainerTrips, ContainerForm, ContainerRight, ContainerLeft, ContainerTitle, ContainerTop, ContainerBottom } from "./styled";
+import DeleteIcon from "../img/labexdelete.png";
 
 export default function AdminHomePage(props) {
 
+    const [allTrips, setAllTrips] = useState()
 
     const navigate = useNavigate()
-
-    const goBack = () => {
-        navigate(-1)
-    }
 
     const goTo = (page) => {
       navigate(`${page}`)
@@ -24,17 +23,84 @@ export default function AdminHomePage(props) {
         console.log("nao esta logado")
         goTo("/")
       }else {
-        console.log("esta logado")
+        getTrips()
       }
-    },[])
+    },[allTrips])
+
+    const getTrips = async() => {
+      try{
+        const response = await axios.get("https://us-central1-labenu-apis.cloudfunctions.net/labeX/joao-gomes-ailton/trips")
+        setAllTrips(response.data.trips)
+      } catch(error){
+
+      }
+    }
+
+    const deleteTrip = async(id) => {
+      const token = localStorage.getItem("token")
+      try {
+        const response = await axios.delete(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/joao-gomes-ailton/trips/${id}`,
+        {
+          headers: {
+            auth: token
+          }
+        })
+      } catch (error) {
+        
+      }
+    }
 
     return (
-      <div >
+      <div>
         <Header notLoged={props.notLoged} setNotLogedToReverse={props.setNotLogedToReverse}/>
-        <p>Admin Home Page</p>
+        
+        <Container>
+          <ContainerTop>
+            <ContainerTitle>
+              <Title>Bem-vindo a sua conta</Title>
+              </ContainerTitle>
+            </ContainerTop>
+          
+          <ContainerBottom>
+              <ContainerLeft>
+                
+                <TitleContainers>
+                  <Title>Viagens</Title>
+                </TitleContainers>
+                
+                <ContainerTrips>
+                  {allTrips?.map((trip, index) => {
+                      return(
+                        
+                        <Trip key={index} onClick={()=> goTo("/admin/trips/:id")} >
+                          <TripNameContainer>{trip.name}</TripNameContainer>
+                          <DeleteStyle onClick={()=> deleteTrip(trip.id)} src={DeleteIcon}/>
+                        </Trip>
+                        
+                      )
+                    })}
+                </ContainerTrips>
+              
+              </ContainerLeft>
+              <ContainerRight>
+                
+                <TitleContainers>
+                  <Title>Crie uma Viagem</Title>
+                </TitleContainers>
+                
+                <ContainerForm>
+                  <input></input>
+                  <input></input>
+                  <input></input>
+                  <input></input>
+                  <input></input>
+                </ContainerForm>
 
-
-        <button onClick={goBack}>Voltar</button>
+              </ContainerRight>
+          </ContainerBottom>
+        </Container>
+        
+        <Footer/>
       </div>
     );
   }

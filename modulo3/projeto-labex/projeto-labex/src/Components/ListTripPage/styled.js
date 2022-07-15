@@ -31,7 +31,7 @@ font-size: 1.5rem;
 export const ContainerBottom = styled.div`
 /* border: 1px solid black; */
 width: 100%;
-height: 90%;
+height: 80%;
 display: flex;
 align-items: center;
 justify-content: center;
