@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Header from "../Header/Header"; 
 import Footer from "../Footer/Footer";
-import { Container, ContainerTitle, ContainerDetail, ContainerBottom, ContainerTop } from "./styled";
+import { Container, ContainerDetailStyle, TitleStyle, TitleStyle1, ContainerApprovedCandidates, ContainerPendingCandidates, ContainerTitle, ContainerCandidates, ContainerDetailGeral, ContainerDetail, ContainerBottom, ContainerTop } from "./styled";
 
 
 export default function TripDetailsPage(props) {
@@ -51,17 +51,31 @@ export default function TripDetailsPage(props) {
         <Container>
           
           <ContainerTop>
-            <ContainerTitle>{tripDetail?.name}</ContainerTitle>
+            <ContainerTitle><TitleStyle1>{tripDetail?.name}</TitleStyle1></ContainerTitle>
           </ContainerTop>
           
           <ContainerBottom>
+
+            <ContainerDetailGeral>
+              
+              <ContainerDetail>
+                <ContainerDetailStyle><TitleStyle>Descrição:</TitleStyle><p>{tripDetail?.description}</p></ContainerDetailStyle>
+                <ContainerDetailStyle><TitleStyle>Planeta:</TitleStyle><p>{tripDetail?.planet}</p></ContainerDetailStyle>
+                <ContainerDetailStyle><TitleStyle>Duração em Dias:</TitleStyle><p>{tripDetail?.durationInDays}</p></ContainerDetailStyle>
+                <ContainerDetailStyle><TitleStyle>Data:</TitleStyle><p>{tripDetail?.date}</p></ContainerDetailStyle>
+              </ContainerDetail>
+              
+              <ContainerCandidates>
+                <ContainerPendingCandidates>
+
+                </ContainerPendingCandidates>
+                <ContainerApprovedCandidates>
+
+                </ContainerApprovedCandidates>
+              </ContainerCandidates>
             
-            <ContainerDetail>
-              {tripDetail.description}
-              {tripDetail.planet}
-              {tripDetail.durationInDays}
-              {tripDetail.date}
-            </ContainerDetail>
+            </ContainerDetailGeral>
+            
 
           </ContainerBottom>
         </Container>

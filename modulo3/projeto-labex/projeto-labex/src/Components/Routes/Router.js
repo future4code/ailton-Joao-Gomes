@@ -13,7 +13,7 @@ export  const Router = () => {
     const setNotLogedToReverse = () => {
         setNotLoged(!notLoged)
     }
-
+    console.log(notLoged)
     return(
 
         <BrowserRouter>

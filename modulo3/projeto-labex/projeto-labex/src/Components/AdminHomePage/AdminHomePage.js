@@ -59,7 +59,7 @@ export default function AdminHomePage(props) {
         setInput(e.target.value)
     }
 
-    console.log(name)
+    
     return (
       <div>
         <Header notLoged={props.notLoged} setNotLogedToReverse={props.setNotLogedToReverse}/>
