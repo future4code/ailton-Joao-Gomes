@@ -132,7 +132,7 @@ export default function Header(props) {
             <LoginPopUp>
                 <LoginInfoContainer>
                     <LoginInput onChange={onChangeEmail} value={emailUser} placeholder="Email"></LoginInput>
-                    <LoginInput onChange={onChangePassword} value={passwordUser} placeholder="Senha"></LoginInput>
+                    <LoginInput type={"password"} onChange={onChangePassword} value={passwordUser} placeholder="Senha"></LoginInput>
                 </LoginInfoContainer>
                 
                 <ButtonLoginEnter onClick={loginTry}>Entrar</ButtonLoginEnter>

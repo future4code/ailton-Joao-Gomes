@@ -10,11 +10,7 @@ import DeleteIcon from "../img/labexdelete.png";
 export default function AdminHomePage(props) {
 
     const [allTrips, setAllTrips] = useState()
-    const [name, setName] = useState()
-    const [planet, setPlanet] = useState()
-    const [date, setDate] = useState()
-    const [description, setDescription] = useState()
-    const [duration, setDuration] = useState()
+    const [form, setForm] = useState({name:"", planet:"", date:"", description:"", durationInDays: 1})
 
     const navigate = useNavigate()
 
@@ -30,7 +26,7 @@ export default function AdminHomePage(props) {
       }else {
         getTrips()
       }
-    },[])
+    },[allTrips])
 
     const getTrips = async() => {
       try{
@@ -55,10 +51,28 @@ export default function AdminHomePage(props) {
       }
     }
 
-    const onChangeInput = (e, setInput) => {
-        setInput(e.target.value)
+    const onChangeInput = (event) => {
+          const {name, value} = event.target
+          setForm({...form, [name]:value})
     }
 
+    const createTrip = async(event) => {
+      event.preventDefault()
+      const token = localStorage.getItem("token")
+      try {
+        const response = await axios.post("https://us-central1-labenu-apis.cloudfunctions.net/labeX/joao-gomes-ailton/trips",form,
+        {
+          headers: {
+            auth: token
+          }
+        })
+        setForm({name:"", planet:"", date:"", description:"", durationInDays: 1})
+        console.log(response)
+      } catch (error) {
+        
+      }
+      }
+    
     
     return (
       <div>
@@ -99,11 +113,14 @@ export default function AdminHomePage(props) {
                 </TitleContainers>
                 
                 <ContainerForm>
-                  <input onChange={()=> onChangeInput(setName)} value={name} placeholder="Nome"></input>
-                  <input placeholder="Planeta"></input>
-                  <input placeholder="Data"></input>
-                  <input placeholder="Descrição"></input>
-                  <input placeholder="Duração em dias"></input>
+                  <form onSubmit={createTrip}>
+                  <input name="name" onChange={onChangeInput} value={form.name} placeholder="Nome" required></input>
+                  <input name="planet" onChange={onChangeInput} placeholder="Planeta" value={form.planet} required></input>
+                  <input name="date" onChange={onChangeInput} placeholder="Data" value={form.date} required></input>
+                  <input name="description" onChange={onChangeInput} placeholder="Descrição" value={form.description} required></input>
+                  <input name="durationInDays" onChange={onChangeInput} placeholder="Duração em dias" value={form.durationInDays} required></input>
+                  <button>Criar</button>
+                  </form>
                 </ContainerForm>
 
               </ContainerRight>
