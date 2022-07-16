@@ -18,6 +18,7 @@ export  const Router = () => {
 
         <BrowserRouter>
         <Routes>
+            
             <Route index element={<HomePage notLoged={notLoged} setNotLogedToReverse={setNotLogedToReverse}/>}/>
             <Route path="trips/list" element={<ListTripPage notLoged={notLoged} setNotLogedToReverse={setNotLogedToReverse}/>}/>
             <Route path="trips/application" element={<ApplicationFormPage/>}/>

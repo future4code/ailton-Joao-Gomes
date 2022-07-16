@@ -10,6 +10,11 @@ import DeleteIcon from "../img/labexdelete.png";
 export default function AdminHomePage(props) {
 
     const [allTrips, setAllTrips] = useState()
+    const [name, setName] = useState()
+    const [planet, setPlanet] = useState()
+    const [date, setDate] = useState()
+    const [description, setDescription] = useState()
+    const [duration, setDuration] = useState()
 
     const navigate = useNavigate()
 
@@ -25,7 +30,7 @@ export default function AdminHomePage(props) {
       }else {
         getTrips()
       }
-    },[allTrips])
+    },[])
 
     const getTrips = async() => {
       try{
@@ -50,6 +55,11 @@ export default function AdminHomePage(props) {
       }
     }
 
+    const onChangeInput = (e, setInput) => {
+        setInput(e.target.value)
+    }
+
+    console.log(name)
     return (
       <div>
         <Header notLoged={props.notLoged} setNotLogedToReverse={props.setNotLogedToReverse}/>
@@ -72,7 +82,7 @@ export default function AdminHomePage(props) {
                   {allTrips?.map((trip, index) => {
                       return(
                         
-                        <Trip key={index} onClick={()=> goTo("/admin/trips/:id")} >
+                        <Trip key={index} onClick={()=> goTo(`/admin/trips/${trip.id}`)} >
                           <TripNameContainer>{trip.name}</TripNameContainer>
                           <DeleteStyle onClick={()=> deleteTrip(trip.id)} src={DeleteIcon}/>
                         </Trip>
@@ -89,11 +99,11 @@ export default function AdminHomePage(props) {
                 </TitleContainers>
                 
                 <ContainerForm>
-                  <input></input>
-                  <input></input>
-                  <input></input>
-                  <input></input>
-                  <input></input>
+                  <input onChange={()=> onChangeInput(setName)} value={name} placeholder="Nome"></input>
+                  <input placeholder="Planeta"></input>
+                  <input placeholder="Data"></input>
+                  <input placeholder="Descrição"></input>
+                  <input placeholder="Duração em dias"></input>
                 </ContainerForm>
 
               </ContainerRight>

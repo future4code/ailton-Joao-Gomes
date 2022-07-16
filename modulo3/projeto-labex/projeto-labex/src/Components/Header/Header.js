@@ -68,7 +68,7 @@ export default function Header(props) {
             setPasswordUser("")
             props.setNotLogedToReverse()
             window.alert("Login realizado com sucesso, seja bem vindo.")
-            goTo("admin/trips/homepage")
+            goTo("/admin/trips/homepage")
         } catch (error){
             window.alert("Usuário não encontrado.")
             setEmailUser("")
