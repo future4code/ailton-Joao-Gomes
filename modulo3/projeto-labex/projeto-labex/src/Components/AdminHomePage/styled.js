@@ -71,17 +71,15 @@ font-size: 1.3rem;
 export const ContainerTrips = styled.div`
 width: 90%;
 height: 80%;
-/* background-color: green; */
+max-height: 80%;
+background-color: green;
 border: 1px solid black;
-display: flex;
-flex-direction: column;
-justify-content: space-around;
-align-items: center;
 overflow: auto;
 `
 export const Trip = styled.div`
 width: 70%;
 height: 12.5%;
+margin: 12px auto;
 background-color: white;
 display: flex;
 justify-content: space-around;

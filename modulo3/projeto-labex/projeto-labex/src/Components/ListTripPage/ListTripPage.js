@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
-import { ContainerTripUnitCenter, ContainerTripUnitLeft, ContainerTripUnitRight, Container, ContainerTop, ContainerBottom, Title, TitleStyleP, ContainerTrips, ContainerTripUnit } from "./styled";
+import { ContainerTripUnitCenter, ContainerRegisterButton, RegisterButton, ContainerTripUnitLeft, ContainerTripUnitRight, Container, ContainerTop, ContainerBottom, Title, TitleStyleP, ContainerTrips, ContainerTripUnit } from "./styled";
 import { useState, useEffect } from "react";
 
 
@@ -27,6 +27,10 @@ export default function ListTripPage (props) {
 
     const navigate = useNavigate()
 
+    const goTo = (page) => {
+      navigate(`${page}`)
+  }
+
     
    console.log(allTrips)
 
@@ -42,6 +46,9 @@ export default function ListTripPage (props) {
             </ContainerTop>
                 
             <ContainerBottom>
+                <ContainerRegisterButton>
+                  <RegisterButton onClick={()=> goTo("/trips/application")}>Inscrever-se</RegisterButton>
+                </ContainerRegisterButton>
                 <ContainerTrips>
                     {allTrips?.map((trip,index) => {
                       return(

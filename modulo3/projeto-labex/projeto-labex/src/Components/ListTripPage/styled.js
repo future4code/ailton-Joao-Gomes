@@ -33,8 +33,10 @@ export const ContainerBottom = styled.div`
 width: 100%;
 height: 80%;
 display: flex;
+flex-direction: column;
 align-items: center;
 justify-content: center;
+padding-bottom: 1%;
 `
 export const ContainerTrips = styled.div `
 width: 70%;
@@ -43,10 +45,11 @@ background-color: white;
 border: 1px solid black;
 display: flex;
 flex-direction: column;
-justify-content: space-around;
+justify-content: top;
 align-items: center;
 overflow: auto;
-top: 0;
+gap: 20px;
+padding: 1% 0;
 `
 export const ContainerTripUnit = styled.div`
 width: 90%;
@@ -79,4 +82,25 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: flex-end;
+`
+export const ContainerRegisterButton = styled.div`
+width: 70%;
+height: 10%;
+`
+export const RegisterButton = styled.div`
+background-color: white;
+width: 15%;
+height: 60%;
+border-radius: 40px;
+display: flex;
+justify-content: center;
+align-items: center;
+border: 1px solid black;
+font-size: 1.2rem;
+cursor: pointer;
+transition: 0.5s;
+:hover{
+    background-color: red;
+    font-size: 1.4rem;
+}
 `

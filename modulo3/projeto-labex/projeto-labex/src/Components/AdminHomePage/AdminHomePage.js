@@ -20,13 +20,15 @@ export default function AdminHomePage(props) {
 
     useEffect(() => {
       const token = localStorage.getItem("token")
-      if (token === ""){
-        console.log("nao esta logado")
+      console.log(token)
+      if (!token){
+       
         goTo("/")
+        window.alert("Acesso negado.")
       }else {
         getTrips()
       }
-    },[allTrips])
+    },[])
 
     const getTrips = async() => {
       try{

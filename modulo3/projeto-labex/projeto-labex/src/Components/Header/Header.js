@@ -13,7 +13,7 @@ export default function Header(props) {
     const [loginOpen, setLoginOpen] = useState(false)
     const [emailUser, setEmailUser] = useState("")
     const [passwordUser, setPasswordUser] = useState("")
-    
+    const token = localStorage.getItem("token")
     
 
     const navigate = useNavigate()
@@ -29,8 +29,7 @@ export default function Header(props) {
     }
 
     const goToAdminArea = () => {
-        const token = localStorage.getItem("token")
-        if (token === ""){
+        if (!token){
         window.alert("Você precisa fazer login primeiro.")
         }else{
         navigate("/admin/trips/homepage")
@@ -119,15 +118,20 @@ export default function Header(props) {
                 <ContainerOptions onClick={goToAdminArea}><p>Área Admin</p></ContainerOptions>
 
             </ContainerMenu>
+              {!token ? <ContainerButtonLogin>
 
-            <ContainerButtonLogin>
+                  <ButtonLogin onClick={openLoginPopUp}>
+                      <p >LOGIN</p>
+                      <IconLoginStyle src={LoginIcon} />
+                  </ButtonLogin>
 
-                <ButtonLogin onClick={openLoginPopUp}>
-                    <p>LOGIN</p>
-                    <IconLoginStyle src={LoginIcon}/>
-                </ButtonLogin>
-
-            </ContainerButtonLogin>
+              </ContainerButtonLogin> :
+                <ButtonLogin onClick={logout}>
+                <p >LOGOUT</p>
+                <IconLoginStyle src={LoginIcon} />
+            </ButtonLogin>
+}
+            
             {loginOpen && 
             <LoginPopUp>
                 <LoginInfoContainer>
@@ -136,7 +140,7 @@ export default function Header(props) {
                 </LoginInfoContainer>
                 
                 <ButtonLoginEnter onClick={loginTry}>Entrar</ButtonLoginEnter>
-                <ButtonLoginEnter onClick={logout}>Logout</ButtonLoginEnter>
+        
             </LoginPopUp>}
 
         </Container>

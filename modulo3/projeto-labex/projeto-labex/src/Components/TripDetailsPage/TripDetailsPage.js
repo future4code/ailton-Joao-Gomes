@@ -20,7 +20,7 @@ export default function TripDetailsPage(props) {
 
     useEffect(() => {
       const token = localStorage.getItem("token")
-      if (token === ""){
+      if (!token){
         console.log("nao esta logado")
         goTo("/")
       }else {
