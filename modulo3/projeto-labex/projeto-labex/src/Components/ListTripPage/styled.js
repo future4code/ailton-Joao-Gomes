@@ -100,7 +100,7 @@ font-size: 1.2rem;
 cursor: pointer;
 transition: 0.5s;
 :hover{
-    background-color: red;
+    background-color: #BDBDBD;
     font-size: 1.4rem;
 }
 `
