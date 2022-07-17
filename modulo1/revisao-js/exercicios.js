@@ -133,12 +133,7 @@ function retornaPessoasAutorizadas(pessoas) {
    for (let i = 0; i < pessoas.length; i++){
        if (pessoas[i].idade > 14 && pessoas[i].idade < 60 && pessoas[i].altura >= 1.50){
             pessoasQuePodem.push(pessoas[i])
-           
-       }
-   }
-   return pessoasQuePodem
 
-}
 
 // EXERCÍCIO 13B
 function retornaPessoasNaoAutorizadas(pessoas) {
@@ -154,7 +149,7 @@ function retornaPessoasNaoAutorizadas(pessoas) {
 // EXERCÍCIO 14
 function retornaContasComSaldoAtualizado(contas) {
     for (let i = 0; i < contas.length; i++){
-        
+
     }
 }
 

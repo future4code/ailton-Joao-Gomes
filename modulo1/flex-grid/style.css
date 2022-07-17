@@ -1,0 +1,116 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#principal {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#cabecalho {
+    height: 10vh;
+    /* border: 1px solid; */
+    display: flex;
+    align-items: center;
+    /* flex-grow: 1; */
+    background-color: mediumvioletred;
+    padding: 20px 0;
+    justify-content: space-between;
+}
+
+#imagem-e-h2 {
+    display: flex;
+}
+
+#main {
+    /* border: 1px solid; */
+    /* flex-grow: 15; */
+    display: flex;
+    /* width: 100vw; */
+}
+
+#menu {
+    width: 25vw;
+    /* border: 1px solid; */
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column  ;
+    background-color: #f2d0e0;
+    gap: 20px;
+    padding: 20px 10px;
+}
+
+.itens-esquerda {
+    display: flex;
+}
+
+#menu-itens {
+    display: flex;
+    justify-content: space-between;
+}
+
+#bolos {
+    /* border: 1px solid; */
+    flex-grow: 5;
+}
+
+#footer {
+    /* border: 1px solid; */
+    /* flex-grow: 1; */
+    background-color: mediumvioletred;
+    display: flex;
+    justify-content: center;    
+    align-items: center;
+    padding: 20px 0;
+}
+
+#bolos {
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 10px;
+    
+}
+
+#card-bolos {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: 45vh;
+    /* align-items: center; */
+    justify-content: space-between;
+    text-align: center;
+    /* border: 1px solid; */
+    box-shadow: 5px 5px lightgray;
+}
+
+
+
+/* /////////////////////////////////////////////// */
+
+#icone-bolinho {
+    width: 25px;
+    height: 25px;
+    padding: 0 10px;
+}
+
+#botao-login {
+    /* position: absolute; */
+    /* right: 0; */
+    margin-right: 20px;
+}
+
+#icone-menu {
+    width: 20px;
+    height: 20px;
+    /* margin-right: 17px; */
+}
+
+#card-bolos img {
+    width: 200px;
+    height: auto;
+}
