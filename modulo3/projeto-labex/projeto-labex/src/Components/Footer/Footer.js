@@ -21,10 +21,10 @@ export default function Footer() {
         </ContainerName>
         <ContainerMedias>
           <Medias>
-            <MediasStyle src={LogoWhats} />
-            <MediasStyle src={LogoInsta} />
-            <MediasStyle src={LogoLinkedin} />
-            <MediasStyle src={LogoGithub} />
+            <a href="https://api.whatsapp.com/send?phone=5551981528199&text=Ol%C3%A1%20Jo%C3%A3o%20%3B)" target="_blank"><MediasStyle src={LogoWhats} /></a>
+            <a href="https://www.instagram.com/joaozang/" target="_blank"><MediasStyle src={LogoInsta} /></a>
+            <a href="https://www.linkedin.com/in/jo%C3%A3o-pedro-zang-gomes-063282163/" target="_blank"><MediasStyle src={LogoLinkedin} /></a>
+            <a href="https://github.com/joaozang" target="_blank"><MediasStyle src={LogoGithub} /></a>
           </Medias>
         </ContainerMedias>
 

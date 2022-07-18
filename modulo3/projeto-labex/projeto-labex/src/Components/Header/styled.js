@@ -73,6 +73,22 @@ transition: 0.3s;
 }
 
 `
+export const ButtonLogout = styled.div `
+height: 50px;
+width: 130px;
+border: 1px solid black;
+border-radius: 20px;
+display: flex;
+align-items: center;
+justify-content: space-around;
+background-color: #FFAAAA;
+cursor: pointer;
+transition: 0.3s;
+:hover{
+    background-color: white;
+}
+
+`
 export const IconLoginStyle = styled.img `
 width: 40px;
 height: 40px;

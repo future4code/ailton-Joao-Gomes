@@ -44,20 +44,13 @@ export default function ApliccationFormPage() {
       const response = await axios.post(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/joao-gomes-ailton/trips/${tripIdForm.id}/apply`,form)
       setForm({name:"", age: 18, applicationText:"", profession:"", country: ""})
       setTripIdForm({id:""})
-      console.log(response)
-      window.alert(`Parabéns ${form.name}, em breve você receberá a resposta se foi ou não aprovado.`)
+      
+      window.alert(`Obrigado(a) ${form.name}, em breve você receberá a resposta se foi ou não aprovado.`)
     } catch (error) {
 
     }
     }
 
-  // const testApp = (event) => {
-  //   event.preventDefault()
-  //   console.log(form)
-  //   console.log(tripIdForm.id)
-    
-
-  // }
 
   return (
     <div >

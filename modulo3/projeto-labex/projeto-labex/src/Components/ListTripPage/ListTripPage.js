@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
+import Loading from "../Loading/Loading";
 import { ContainerTripUnitCenter, ContainerRegisterButton, RegisterButton, ContainerTripUnitLeft, ContainerTripUnitRight, Container, ContainerTop, ContainerBottom, Title, TitleStyleP, ContainerTrips, ContainerTripUnit } from "./styled";
 import { useState, useEffect } from "react";
 
@@ -10,9 +11,12 @@ import { useState, useEffect } from "react";
 export default function ListTripPage() {
 
   const [allTrips, setAllTrips] = useState()
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
+    setLoading(true)
     getTrips()
+    setLoading(false)
   }, [])
 
   const getTrips = async () => {
@@ -49,7 +53,8 @@ export default function ListTripPage() {
             <RegisterButton onClick={() => goTo("/trips/application")}>Inscrever-se</RegisterButton>
           </ContainerRegisterButton>
           <ContainerTrips>
-            {allTrips?.map((trip, index) => {
+            {loading && <Loading/>}
+            { loading || allTrips?.map((trip, index) => {
               return (
 
                 <ContainerTripUnit key={index}>

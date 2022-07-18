@@ -17,6 +17,7 @@ export default function HomePage() {
         <ContainerCard>
           <Card>
             <WelcomeText>Seja bem vindo! </WelcomeText>
+            
           </Card>
         </ContainerCard>
 

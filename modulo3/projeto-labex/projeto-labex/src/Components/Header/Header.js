@@ -1,9 +1,10 @@
 import React from "react";
-import { ButtonLoginEnter, LoginInput, LoginInfoContainer, LoginPopUp, Container, ContainerButtonLogin, ContainerLogo, ContainerMenu, LogoStyle, ContainerOptions, ButtonLogin, IconLoginStyle } from "./styled";
+import { ButtonLoginEnter, ButtonLogout, LoginInput, LoginInfoContainer, LoginPopUp, Container, ContainerButtonLogin, ContainerLogo, ContainerMenu, LogoStyle, ContainerOptions, ButtonLogin, IconLoginStyle } from "./styled";
 import Logo from '../img/labexlogo.png';
 import LoginIcon from '../img/loginicon.png';
+import LogoutIcon from '../img/labexlogout.png'
 import { useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import axios from "axios";
 
 
@@ -36,9 +37,6 @@ export default function Header() {
         }
     }
 
-    // useEffect(() => {
-    //     window.localStorage.setItem("notLoged", true)
-    // }, []) 
 
 
 
@@ -106,10 +104,10 @@ export default function Header() {
                 </ButtonLogin>
 
             </ContainerButtonLogin> :
-                <ButtonLogin onClick={logout}>
+                <ButtonLogout onClick={logout}>
                     <p >LOGOUT</p>
-                    <IconLoginStyle src={LoginIcon} />
-                </ButtonLogin>
+                    <IconLoginStyle src={LogoutIcon} />
+                </ButtonLogout>
             }
 
             {loginOpen &&

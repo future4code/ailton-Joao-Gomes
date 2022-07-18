@@ -4,14 +4,17 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
-import { Container, TripNameContainer, DeleteStyle, TitleContainers, Title, Trip, ContainerTrips, ContainerForm, ContainerRight, ContainerLeft, ContainerTitle, ContainerTop, ContainerBottom } from "./styled";
-import DeleteIcon from "../img/labexdelete.png";
+import Loading from "../Loading/Loading";
+import { Container, InputStyleDescription, DetailsStyle, InputStyle, FormStyle, TripNameContainer, DeleteStyle, TitleContainers, Title, Trip, ContainerTrips, ContainerForm, ContainerRight, ContainerLeft, ContainerTitle, ContainerTop, ContainerBottom } from "./styled";
+import DeleteIcon from "../img/labexdelete2.png";
+import DeatilsIcon from "../img/labexdetails.png"
 
 export default function AdminHomePage() {
 
   const [allTrips, setAllTrips] = useState()
   const [form, setForm] = useState({ name: "", planet: "", date: "", description: "", durationInDays: 1 })
   const [count, setCount] = useState()
+  const [loading, setLoading] = useState(true)
 
   const navigate = useNavigate()
 
@@ -25,8 +28,11 @@ export default function AdminHomePage() {
 
       goTo("/")
 
+
     } else {
+      setLoading(true)
       getTrips()
+      setLoading(false)
     }
   }, [count])
 
@@ -49,6 +55,7 @@ export default function AdminHomePage() {
           }
         })
         setCount(count+1)
+        getTrips()
     } catch (error) {
 
     }
@@ -71,6 +78,7 @@ export default function AdminHomePage() {
         })
       setForm({ name: "", planet: "", date: "", description: "", durationInDays: 1 })
       setCount(count+1)
+      getTrips()
     } catch (error) {
 
     }
@@ -96,12 +104,15 @@ export default function AdminHomePage() {
             </TitleContainers>
 
             <ContainerTrips>
-              {allTrips?.map((trip, index) => {
+              {loading && <Loading/>}
+              {loading || allTrips?.map((trip, index) => {
                 return (
-
-                  <Trip key={index} onClick={() => goTo(`/admin/trips/${trip.id}`)} >
+                  
+                  <Trip key={index}  >
                     <TripNameContainer>{trip.name}</TripNameContainer>
+                    <DetailsStyle onClick={() => goTo(`/admin/trips/${trip.id}`)} src={DeatilsIcon} />
                     <DeleteStyle onClick={() => deleteTrip(trip.id)} src={DeleteIcon} />
+                    
                   </Trip>
 
                 )
@@ -116,14 +127,14 @@ export default function AdminHomePage() {
             </TitleContainers>
 
             <ContainerForm>
-              <form onSubmit={createTrip}>
-                <input pattern="^.{3,}" title="O nome deve ter no mínimo 3 caracteres" name="name" onChange={onChangeInput} value={form.name} placeholder="Nome" required></input>
-                <input name="planet" onChange={onChangeInput} placeholder="Planeta" value={form.planet} required></input>
-                <input name="date" min={new Date().toISOString().slice(0,10)} type={`date`} onChange={onChangeInput} placeholder="Data" value={form.date} required></input>
-                <input pattern="^.{10,}" title="A descrição deve ter no mínimo 10 caracteres" name="description" onChange={onChangeInput} placeholder="Descrição" value={form.description} required></input>
-                <input name="durationInDays" min={1} type={`number`} onChange={onChangeInput} placeholder="Duração em dias" value={form.durationInDays} required></input>
+              <FormStyle onSubmit={createTrip}>
+                <InputStyle pattern="^.{3,}" title="O nome deve ter no mínimo 3 caracteres" name="name" onChange={onChangeInput} value={form.name} placeholder="Nome da Viagem" required></InputStyle>
+                <InputStyle name="planet" onChange={onChangeInput} placeholder="Planeta" value={form.planet} required></InputStyle>
+                <InputStyle name="date" min={new Date().toISOString().slice(0,10)} type={`date`} onChange={onChangeInput} placeholder="Data" value={form.date} required></InputStyle>
+                <InputStyleDescription pattern="^.{10,}" title="A descrição deve ter no mínimo 10 caracteres" name="description" onChange={onChangeInput} placeholder="Descrição" value={form.description} required></InputStyleDescription>
+                <InputStyle name="durationInDays" min={1} type={`number`} onChange={onChangeInput} placeholder="Duração em dias" value={form.durationInDays} required></InputStyle>
                 <button>Criar</button> 
-              </form>
+              </FormStyle>
             </ContainerForm>
 
           </ContainerRight>

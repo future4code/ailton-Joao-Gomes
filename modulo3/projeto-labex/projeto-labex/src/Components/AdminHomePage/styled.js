@@ -33,12 +33,12 @@ height: 80%;
 display: flex;
 align-items: center;
 justify-content: space-around;
-border-top: 1px solid black;
+/* border-top: 1px solid black; */
 `
 export const ContainerLeft = styled.div `
 width: 40%;
 height: 90%;
-background-color: white;
+background-color: #90EE90;
 display: flex;
 flex-direction: column;
 justify-content: space-around;
@@ -48,7 +48,7 @@ border-radius: 20px;
 export const ContainerRight = styled.div `
 width: 40%;
 height: 90%;
-background-color: white; 
+background-color: #90EE90;
 display: flex;
 flex-direction: column;
 justify-content: space-around;
@@ -58,7 +58,7 @@ border-radius: 20px;
 export const TitleContainers = styled.div `
 width: 40%;
 height: 10%;
-/* background-color: red; */
+background-color: white;
 border: 1px solid black;
 border-radius: 40px;
 display: flex;
@@ -72,7 +72,9 @@ export const ContainerTrips = styled.div`
 width: 90%;
 height: 80%;
 max-height: 80%;
-background-color: green;
+display: flex;
+flex-wrap: wrap;
+background-color: #DAE8FC;
 border: 1px solid black;
 overflow: auto;
 `
@@ -86,28 +88,72 @@ justify-content: space-around;
 align-items: center;
 border-radius: 40px;
 border: 1px solid black;
-cursor: pointer;
 `
 export const DeleteStyle = styled.img `
 width: 30px;
 height: 30px;
 cursor: pointer;
-transition: 0.5s;
+border-radius: 100%;
+border: 1.8px solid black;
+transition: 0.2s;
 :hover{
     background-color: lightgreen;
     border-radius: 100%;
 }
 `
+export const DetailsStyle = styled.img`
+width: 30px;
+height: 30px;
+cursor: pointer;
+border-radius: 100%;
+border: 1.8px solid black;
+transition: 0.2s;
+:hover{
+    background-color: #BDBDBD;
+    border-radius: 100%;
+}
+`
+
 export const TripNameContainer = styled.div`
-width: 80%;
+width: 70%;
 `
 export const ContainerForm = styled.div`
 width: 90%;
 height: 80%;
-/* background-color: green; */
+background-color: #DAE8FC;
 border: 1px solid black;
 display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
+`
+export const FormStyle = styled.form `
+display: flex;
+flex-direction: column;
+justify-content: center;
+gap: 5%;
+align-items: center;
+width: 100%;
+height: 100%;
+`
+export const InputStyle = styled.input `
+width: 50%;
+height: 6%;
+border-radius: 5px;
+border: 1px solid black;
+padding: 0px 10px;
+background-color: white;
+
+`
+export const InputStyleDescription = styled.textarea `
+width: 50%;
+height: 15%;
+padding: 12px 10px;
+/* box-sizing: border-box; */
+/* border: 2px solid #ccc; */
+border-radius: 5px;
+/* background-color: #f8f8f8; */
+font-size: 1.3em;
+resize: none;
+background-color: white;
 `
