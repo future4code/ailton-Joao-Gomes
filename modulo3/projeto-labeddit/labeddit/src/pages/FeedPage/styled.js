@@ -17,3 +17,8 @@ padding: 0 34px;
 padding-top: 30px;
 padding-bottom: 36px;
 `
+export const ContainerPosts = styled.div `
+width: 100%;
+padding: 0 32px;
+overflow: auto;
+`

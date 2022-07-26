@@ -1,22 +1,41 @@
-import { useEffect, React } from "react";
+import { useEffect, useState, React } from "react";
 import { useNavigate } from "react-router";
 import { Header } from "../../components/Header/Header";
 import { TextArea } from "../../components/TextArea";
 import { Buttons } from "../../components/Buttons";
 import { StyleLine } from "../../components/StyleLine";
-import { Container, ContainerTextAndButton } from "./styled";
+import { Card } from "../../components/Card/Card";
+import { Container, ContainerTextAndButton, ContainerPosts, CardPost } from "./styled";
 import { GoTo } from "../../functions/GoTo";
+import axios from "axios";
 
 export const FeedPage = () => {
   const navigate = useNavigate();
+  const [posts, setPosts] = useState();
 
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) {
       GoTo(navigate, "/");
+    } else {
+      getPosts();
     }
   }, []);
 
+  const getPosts = async () => {
+    const token = localStorage.getItem("token");
+    try {
+      const response = await axios.get("https://labeddit.herokuapp.com/posts", {
+        headers: {
+          Authorization: token,
+        },
+      });
+      setPosts(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  console.log(posts);
   return (
     <Container>
       <Header />
@@ -32,6 +51,13 @@ export const FeedPage = () => {
         </Buttons>
         <StyleLine />
       </ContainerTextAndButton>
+      <ContainerPosts>
+        {posts && posts?.map((data,index) => {
+          return(
+            <Card username={data.username} key={index}/>
+          )
+        })}
+      </ContainerPosts>
     </Container>
   );
 };
