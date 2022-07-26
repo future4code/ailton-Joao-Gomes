@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 import {
   Container,
   Checkbox,
@@ -19,12 +20,19 @@ import { Buttons } from "../../components/Buttons";
 import { useForm } from "../../hooks/useForm";
 
 export const RegisterPage = () => {
-  const { form, onChange } = useForm({ name: "", email: "", password: "" });
+  const { form, onChange } = useForm({ username: "", email: "", password: "" });
 
-  const Teste = (event) => {
+  const signup = async(event) => {
     event.preventDefault();
 
-    console.log(form);
+    try {
+      const response = await axios.post("https://labeddit.herokuapp.com/users/signup", form)
+      window.localStorage.setItem("token", response.data.token)
+      window.alert("Cadastro realizado com sucesso.")
+    } catch (error) {
+      window.alert("Cadastro NÃO realizado.")
+    }
+    
   };
   
   return (
@@ -32,11 +40,11 @@ export const RegisterPage = () => {
       <Header></Header>
       <Text>Olá, boas vindas ao LabEddit ;)</Text>
       <Separator1></Separator1>
-      <form onSubmit={Teste}>
+      <form onSubmit={signup}>
         <InputContainer>
           <Input
-            name="name"
-            value={form.name}
+            name="username"
+            value={form.username}
             onChange={onChange}
             required
             placeholder="Nome de usuário"
