@@ -2,21 +2,20 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import LogoLabeddit from "../../assets/logolabeddit.png";
 import { Buttons } from "../../components/Buttons";
+import { StyleLine } from "../../components/StyleLine";
+import { Input } from "../../components/Input";
 import { GoTo } from "../../functions/GoTo";
 import {
   Container,
   Separator1,
-  StyleLine,
   ButtonsContainer,
   Separator2,
   Separator3,
-  Input,
   LogoStyle,
   InputContainer,
   TextLogo,
   Title,
   Subtitle,
-  Test,
 } from "./styled";
 
 export const LoginPage = () => {

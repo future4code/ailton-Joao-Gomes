@@ -28,7 +28,7 @@ font-weight: bold;
 display: flex;
 align-items: center;
 justify-content: center;
-`
+`;
 export const Subtitle = styled.div`
 font-size: 16px;
   display: flex;
@@ -42,16 +42,7 @@ flex-direction: column;
 align-items: center;
 justify-content: center;
 gap: 8px;
-`
-export const Input = styled.input`
-  padding-left: 16px;
-  font-size: 16px;
-  width: 100%;
-  height: 54px;
-  border: 1px solid #d5d8de;
-  border-radius: 4px;
 `;
-
 export const ButtonsContainer = styled.div`
   width: 85%;
   display: flex;
@@ -59,9 +50,4 @@ export const ButtonsContainer = styled.div`
   align-items: center;
   justify-content: center;
   gap: 18px;
-`;
-export const StyleLine = styled.div`
-  width: 100%;
-  height: 2px;
-  background-image: linear-gradient(#ff6489, #f9b24e);
 `;
