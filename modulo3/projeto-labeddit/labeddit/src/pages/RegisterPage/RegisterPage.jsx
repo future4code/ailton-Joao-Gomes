@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import {
   Container,
   Checkbox,
@@ -18,10 +19,12 @@ import { Header } from "../../components/Header/Header";
 import { Input } from "../../components/Input";
 import { Buttons } from "../../components/Buttons";
 import { useForm } from "../../hooks/useForm";
+import { GoTo } from "../../functions/GoTo";
 
 export const RegisterPage = () => {
   const { form, onChange } = useForm({ username: "", email: "", password: "" });
 
+  const navigate = useNavigate()
   const signup = async(event) => {
     event.preventDefault();
 
@@ -29,6 +32,7 @@ export const RegisterPage = () => {
       const response = await axios.post("https://labeddit.herokuapp.com/users/signup", form)
       window.localStorage.setItem("token", response.data.token)
       window.alert("Cadastro realizado com sucesso.")
+      
     } catch (error) {
       window.alert("Cadastro NÃO realizado.")
     }

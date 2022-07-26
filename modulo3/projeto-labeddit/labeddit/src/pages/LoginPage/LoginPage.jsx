@@ -33,6 +33,7 @@ export const LoginPage = () => {
       const response = await axios.post("https://labeddit.herokuapp.com/users/login", form)
       window.localStorage.setItem("token", response.data.token)
       window.alert("Login realizado com sucesso.")
+      GoTo(navigate, "/feed");
     } catch (error) {
       window.alert("Usuário NÃO encontrado.")
     }
