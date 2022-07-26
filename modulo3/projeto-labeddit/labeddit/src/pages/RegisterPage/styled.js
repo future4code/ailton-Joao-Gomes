@@ -13,6 +13,12 @@ height: 194px;
 export const Separator2 = styled.div`
 height: 65px;
 `
+export const Separator3 = styled.div`
+height: 17px;
+`
+export const Separator4 = styled.div `
+height: 28px;
+`
 export const Text = styled.div `
 width: 100%;
 padding: 0 32px;
@@ -35,7 +41,18 @@ padding: 0 34px;
 `
 export const TextContract = styled.div`
 width: 100%;
+font-size: 14px;
+`
+export const DivCheckText = styled.div`
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 11px;
 `
 export const Checkbox = styled.input `
+`
+export const CheckText = styled.p `
+font-size: 14px;
 `
 
