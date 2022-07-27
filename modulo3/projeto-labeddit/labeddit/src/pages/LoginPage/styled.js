@@ -7,15 +7,6 @@ display: flex;
 flex-direction: column;
 align-items: center;
 `
-export const Separator1 = styled.div`
-height: 133px;
-`
-export const Separator2 = styled.div`
-height: 107px;
-`
-export const Separator3 = styled.div`
-height: 56px;
-`
 export const LogoStyle = styled.img`
 width: 19.65%;
 `
@@ -36,7 +27,8 @@ font-size: 16px;
   justify-content: center;
 `;
 export const InputContainer = styled.div`
-width: 85%;
+width: 100%;
+padding: 0 32px;
 display: flex;
 flex-direction: column;
 align-items: center;
@@ -44,10 +36,14 @@ justify-content: center;
 gap: 8px;
 `;
 export const ButtonsContainer = styled.div`
-  width: 85%;
+  width: 100%;
+  padding: 0 32px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 18px;
 `;
+export const Form = styled.form`
+width: 100%;
+`

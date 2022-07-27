@@ -7,18 +7,6 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
 `;
-export const Separator1 = styled.div`
-height: 194px;
-`
-export const Separator2 = styled.div`
-height: 65px;
-`
-export const Separator3 = styled.div`
-height: 17px;
-`
-export const Separator4 = styled.div `
-height: 28px;
-`
 export const Text = styled.div `
 width: 100%;
 padding: 0 32px;

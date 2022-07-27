@@ -7,12 +7,8 @@ import {
   TextContract,
   ContainerCheckButton,
   Text,
-  Separator1,
-  Separator3,
-  Separator4,
   CheckText,
   DivCheckText,
-  Separator2,
   InputContainer,
 } from "./styled";
 import { Header } from "../../components/Header/Header";
@@ -20,30 +16,33 @@ import { Input } from "../../components/Input";
 import { Buttons } from "../../components/Buttons";
 import { useForm } from "../../hooks/useForm";
 import { GoTo } from "../../functions/GoTo";
+import { Separator } from "../../components/Separator";
 
 export const RegisterPage = () => {
   const { form, onChange } = useForm({ username: "", email: "", password: "" });
 
-  const navigate = useNavigate()
-  const signup = async(event) => {
+  const navigate = useNavigate();
+  const signup = async (event) => {
     event.preventDefault();
 
     try {
-      const response = await axios.post("https://labeddit.herokuapp.com/users/signup", form)
-      window.localStorage.setItem("token", response.data.token)
-      window.alert("Cadastro realizado com sucesso.")
-      
+      const response = await axios.post(
+        "https://labeddit.herokuapp.com/users/signup",
+        form
+      );
+      window.localStorage.setItem("token", response.data.token);
+      window.alert("Cadastro realizado com sucesso.");
+      GoTo(navigate, "/feed")
     } catch (error) {
-      window.alert("Cadastro NÃO realizado.")
+      window.alert("Cadastro NÃO realizado.");
     }
-    
   };
-  
+
   return (
     <Container>
       <Header></Header>
       <Text>Olá, boas vindas ao LabEddit ;)</Text>
-      <Separator1></Separator1>
+      <Separator height={196} />
       <form onSubmit={signup}>
         <InputContainer>
           <Input
@@ -66,22 +65,24 @@ export const RegisterPage = () => {
             onChange={onChange}
             required
             placeholder="Senha"
+            pattern="[0-9a-zA-Z]{8,30}"
+            title=" A senha deve possuir no mínimo 8 e no máximo 30 caracteres"
           ></Input>
         </InputContainer>
-        <Separator2 />
+        <Separator height={65} />
         <ContainerCheckButton>
           <TextContract>
             Ao continuar, você concorda com o nosso contrato de usuário e nossa
             Política de Privacidade
           </TextContract>
-          <Separator3 />
+          <Separator height={17} />
           <DivCheckText>
             <Checkbox type="checkbox"></Checkbox>
             <CheckText>
               Eu concordo em receber emails sobre coisas legais no Labeddit
             </CheckText>
           </DivCheckText>
-          <Separator4 />
+          <Separator height={28} />
           <Buttons
             color={"#FFF"}
             background={"linear-gradient(90deg, #FF6489 0%, #F9B24E 100%)"}

@@ -6,13 +6,12 @@ import { Buttons } from "../../components/Buttons";
 import { StyleLine } from "../../components/StyleLine";
 import { Input } from "../../components/Input";
 import { GoTo } from "../../functions/GoTo";
+import { Separator } from "../../components/Separator";
 import { useForm } from "../../hooks/useForm";
 import {
   Container,
-  Separator1,
   ButtonsContainer,
-  Separator2,
-  Separator3,
+  Form,
   LogoStyle,
   InputContainer,
   TextLogo,
@@ -21,27 +20,29 @@ import {
 } from "./styled";
 
 export const LoginPage = () => {
+  const navigate = useNavigate();
 
- const navigate = useNavigate()
+  const { form, onChange } = useForm({ email: "", password: "" });
 
- const { form, onChange } = useForm({ email: "", password: "" });
-
-  const login = async(event) => {
+  const login = async (event) => {
     event.preventDefault();
 
     try {
-      const response = await axios.post("https://labeddit.herokuapp.com/users/login", form)
-      window.localStorage.setItem("token", response.data.token)
-      window.alert("Login realizado com sucesso.")
+      const response = await axios.post(
+        "https://labeddit.herokuapp.com/users/login",
+        form
+      );
+      window.localStorage.setItem("token", response.data.token);
+      window.alert("Login realizado com sucesso.");
       GoTo(navigate, "/feed");
     } catch (error) {
-      window.alert("Usuário NÃO encontrado.")
+      window.alert("Usuário NÃO encontrado.");
     }
-  }
+  };
 
   return (
     <Container>
-      <Separator1 />
+      <Separator height={133} />
 
       <LogoStyle src={LogoLabeddit} />
 
@@ -50,8 +51,8 @@ export const LoginPage = () => {
         <Subtitle>O projeto de rede social da Labenu</Subtitle>
       </TextLogo>
 
-      <Separator2 />
-      <form onSubmit={login}>
+      <Separator height={107} />
+      <Form onSubmit={login}>
         <InputContainer>
           <Input
             name="email"
@@ -69,7 +70,7 @@ export const LoginPage = () => {
           ></Input>
         </InputContainer>
 
-        <Separator3 />
+        <Separator height={56} />
 
         <ButtonsContainer>
           <Buttons
@@ -91,7 +92,7 @@ export const LoginPage = () => {
             Crie uma conta!
           </Buttons>
         </ButtonsContainer>
-      </form>
+      </Form>
     </Container>
   );
 };
