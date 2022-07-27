@@ -1,4 +1,4 @@
-import React from "react";
+import { useEffect, React } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import LogoLabeddit from "../../assets/logolabeddit.png";
@@ -23,6 +23,13 @@ export const LoginPage = () => {
   const navigate = useNavigate();
 
   const { form, onChange } = useForm({ email: "", password: "" });
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      GoTo(navigate, "/feed");
+    }
+  }, []);
 
   const login = async (event) => {
     event.preventDefault();

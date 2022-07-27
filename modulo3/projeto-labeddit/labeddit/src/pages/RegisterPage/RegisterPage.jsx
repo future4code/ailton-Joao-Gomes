@@ -1,4 +1,4 @@
-import React from "react";
+import { useEffect, React } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import {
@@ -22,6 +22,14 @@ export const RegisterPage = () => {
   const { form, onChange } = useForm({ username: "", email: "", password: "" });
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      GoTo(navigate, "/feed");
+    }
+  }, []);
+
   const signup = async (event) => {
     event.preventDefault();
 
@@ -32,7 +40,7 @@ export const RegisterPage = () => {
       );
       window.localStorage.setItem("token", response.data.token);
       window.alert("Cadastro realizado com sucesso.");
-      GoTo(navigate, "/feed")
+      GoTo(navigate, "/feed");
     } catch (error) {
       window.alert("Cadastro NÃO realizado.");
     }
