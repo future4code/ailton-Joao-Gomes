@@ -22,3 +22,15 @@ width: 100%;
 padding: 0 32px;
 overflow: auto;
 `
+export const InputTitle = styled.input`
+  padding-left: 17px;
+  font-size: 18px;
+  width: 100%;
+  height: 44px;
+  background-color: #ededed;
+  border: none;
+  border-radius: 4px;
+`;
+export const Form = styled.form `
+width: 100%;
+`
