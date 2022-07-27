@@ -5,7 +5,7 @@ import { TextArea } from "../../components/TextArea";
 import { Buttons } from "../../components/Buttons";
 import { StyleLine } from "../../components/StyleLine";
 import { Card } from "../../components/Card/Card";
-import { Container, ContainerTextAndButton, ContainerPosts, CardPost } from "./styled";
+import { Container, ContainerTextAndButton, ContainerPosts } from "./styled";
 import { GoTo } from "../../functions/GoTo";
 import axios from "axios";
 
@@ -52,11 +52,19 @@ export const FeedPage = () => {
         <StyleLine />
       </ContainerTextAndButton>
       <ContainerPosts>
-        {posts && posts?.map((data,index) => {
-          return(
-            <Card username={data.username} key={index}/>
-          )
-        })}
+        {posts &&
+          posts?.map((data, index) => {
+            return (
+              <Card
+                username={data.username}
+                title={data.title}
+                bodyText={data.body}
+                voteSum={data.voteSum}
+                commentCount={data.commentCount}
+                key={index}
+              />
+            );
+          })}
       </ContainerPosts>
     </Container>
   );
