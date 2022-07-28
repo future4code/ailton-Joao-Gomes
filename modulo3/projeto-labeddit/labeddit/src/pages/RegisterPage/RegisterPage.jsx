@@ -12,6 +12,7 @@ import {
   InputContainer,
 } from "./styled";
 import { Header } from "../../components/Header/Header";
+import { Form } from "../../components/Form";
 import { Input } from "../../components/Input";
 import { Buttons } from "../../components/Buttons";
 import { useForm } from "../../hooks/useForm";
@@ -19,7 +20,7 @@ import { GoTo } from "../../functions/GoTo";
 import { Separator } from "../../components/Separator";
 
 export const RegisterPage = () => {
-  const { form, onChange } = useForm({ username: "", email: "", password: "" });
+  const { form, onChange, cleanFields } = useForm({ username: "", email: "", password: "" });
 
   const navigate = useNavigate();
 
@@ -43,6 +44,7 @@ export const RegisterPage = () => {
       GoTo(navigate, "/feed");
     } catch (error) {
       window.alert("Cadastro NÃO realizado.");
+      cleanFields();
     }
   };
 
@@ -51,7 +53,7 @@ export const RegisterPage = () => {
       <Header></Header>
       <Text>Olá, boas vindas ao LabEddit ;)</Text>
       <Separator height={196} />
-      <form onSubmit={signup}>
+      <Form onSubmit={signup}>
         <InputContainer>
           <Input
             name="username"
@@ -100,7 +102,7 @@ export const RegisterPage = () => {
             Cadastrar
           </Buttons>
         </ContainerCheckButton>
-      </form>
+      </Form>
     </Container>
   );
 };

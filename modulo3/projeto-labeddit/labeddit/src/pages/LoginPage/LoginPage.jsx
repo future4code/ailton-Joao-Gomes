@@ -7,11 +7,11 @@ import { StyleLine } from "../../components/StyleLine";
 import { Input } from "../../components/Input";
 import { GoTo } from "../../functions/GoTo";
 import { Separator } from "../../components/Separator";
+import { Form } from "../../components/Form";
 import { useForm } from "../../hooks/useForm";
 import {
   Container,
   ButtonsContainer,
-  Form,
   LogoStyle,
   InputContainer,
   TextLogo,
@@ -22,7 +22,7 @@ import {
 export const LoginPage = () => {
   const navigate = useNavigate();
 
-  const { form, onChange } = useForm({ email: "", password: "" });
+  const { form, onChange, cleanFields } = useForm({ email: "", password: "" });
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -44,6 +44,7 @@ export const LoginPage = () => {
       GoTo(navigate, "/feed");
     } catch (error) {
       window.alert("Usuário NÃO encontrado.");
+      cleanFields();
     }
   };
 

@@ -1,8 +1,10 @@
 import { useEffect, React } from "react";
 import { useNavigate } from "react-router";
 import { GoTo } from "../../functions/GoTo";
+import { Header } from "../../components/Header/Header";
+import { Container } from "./styled";
 
-export const PostPage = () => {
+export const PostPage = (props) => {
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -11,5 +13,11 @@ export const PostPage = () => {
       GoTo(navigate, "/");
     }
   }, []);
-  return <div>PostPage</div>;
+  return (
+  <Container>
+    <Header/>
+    <p>{props.title}</p>
+
+  </Container>
+  )
 };

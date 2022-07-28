@@ -9,4 +9,5 @@ export const TextArea = styled.textarea`
   border-radius: 12px;
   background-color: #ededed;
   font-size: 18px;
+  resize: none;
 `;

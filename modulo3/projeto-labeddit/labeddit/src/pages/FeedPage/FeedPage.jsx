@@ -5,12 +5,12 @@ import { TextArea } from "../../components/TextArea";
 import { Buttons } from "../../components/Buttons";
 import { StyleLine } from "../../components/StyleLine";
 import { Card } from "../../components/Card/Card";
+import { Form } from "../../components/Form";
 import {
   Container,
   ContainerTextAndButton,
   ContainerPosts,
   InputTitle,
-  Form,
 } from "./styled";
 import { GoTo } from "../../functions/GoTo";
 import { useForm } from "../../hooks/useForm";
@@ -19,7 +19,7 @@ import axios from "axios";
 export const FeedPage = () => {
   const navigate = useNavigate();
   const [posts, setPosts] = useState();
-  const { form, onChange } = useForm({ title: "", body: "" });
+  const { form, onChange, cleanFields } = useForm({ title: "", body: "" });
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -58,10 +58,53 @@ export const FeedPage = () => {
           },
         }
       );
+      window.alert("Post realizado")
+      cleanFields()
       getPosts();
     } catch (error) {
       console.log(error);
+      cleanFields();
     }
+  };
+
+  const upVote = async (id, data) => {
+    const token = localStorage.getItem("token");
+    const body = {
+      direction: data,
+    };
+    try {
+      const response = await axios.post(
+        `https://labeddit.herokuapp.com/posts/${id}/votes`,
+        body,
+        {
+          headers: {
+            Authorization: token,
+          },
+        }
+      );
+      console.log("foi upvote");
+      getPosts();
+    } catch (error) {}
+  };
+
+  const downVote = async (id, data) => {
+    const token = localStorage.getItem("token");
+    const body = {
+      direction: data,
+    };
+    try {
+      const response = await axios.post(
+        `https://labeddit.herokuapp.com/posts/${id}/votes`,
+        body,
+        {
+          headers: {
+            Authorization: token,
+          },
+        }
+      );
+      console.log("foi downvote");
+      getPosts();
+    } catch (error) {}
   };
 
   // console.log(posts);
@@ -101,11 +144,14 @@ export const FeedPage = () => {
           posts?.map((data, index) => {
             return (
               <Card
+                downVote={downVote}
+                upVote={upVote}
                 username={data.username}
                 title={data.title}
                 bodyText={data.body}
                 voteSum={data.voteSum}
                 commentCount={data.commentCount}
+                id={data.id}
                 key={index}
               />
             );

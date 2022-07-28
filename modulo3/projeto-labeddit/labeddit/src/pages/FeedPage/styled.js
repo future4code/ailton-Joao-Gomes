@@ -31,6 +31,4 @@ export const InputTitle = styled.input`
   border: none;
   border-radius: 4px;
 `;
-export const Form = styled.form `
-width: 100%;
-`
+

@@ -44,6 +44,4 @@ export const ButtonsContainer = styled.div`
   justify-content: center;
   gap: 18px;
 `;
-export const Form = styled.form`
-width: 100%;
-`
+
