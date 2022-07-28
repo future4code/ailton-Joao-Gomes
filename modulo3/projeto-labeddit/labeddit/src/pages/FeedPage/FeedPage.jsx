@@ -5,6 +5,7 @@ import { TextArea } from "../../components/TextArea";
 import { Buttons } from "../../components/Buttons";
 import { StyleLine } from "../../components/StyleLine";
 import { Card } from "../../components/Card/Card";
+import { Loading } from "../../components/Loading/Loading";
 import { Form } from "../../components/Form";
 import {
   Container,
@@ -19,6 +20,7 @@ import axios from "axios";
 export const FeedPage = () => {
   const navigate = useNavigate();
   const [posts, setPosts] = useState();
+  // const [loading, setLoading] = useState(true)
   const { form, onChange, cleanFields } = useForm({ title: "", body: "" });
 
   useEffect(() => {
@@ -58,8 +60,8 @@ export const FeedPage = () => {
           },
         }
       );
-      window.alert("Post realizado")
-      cleanFields()
+      window.alert("Post realizado");
+      cleanFields();
       getPosts();
     } catch (error) {
       console.log(error);
