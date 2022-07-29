@@ -16,6 +16,7 @@ import {
 import { GoTo } from "../../functions/GoTo";
 import { useForm } from "../../hooks/useForm";
 import axios from "axios";
+import { Separator } from "../../components/Separator";
 
 export const FeedPage = () => {
   const navigate = useNavigate();
@@ -141,12 +142,13 @@ export const FeedPage = () => {
           <StyleLine />
         </ContainerTextAndButton>
       </Form>
+      {/* <Separator height={26}/> */}
       <ContainerPosts>
         {posts &&
           posts?.map((data, index) => {
             return (
               <Card
-                
+                type={"posts"}
                 downVote={downVote}
                 upVote={upVote}
                 username={data.username}

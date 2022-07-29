@@ -7,3 +7,13 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
 `;
+export const ContainerPostPrincipal = styled.div `
+width: 100%;
+padding: 0 32px;
+`
+export const ContainerComments = styled.div`
+  width: 100%;
+  padding: 0 32px;
+  overflow: auto;
+  
+`;

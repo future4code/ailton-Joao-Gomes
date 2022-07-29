@@ -21,6 +21,11 @@ export const ContainerPosts = styled.div `
 width: 100%;
 padding: 0 32px;
 overflow: auto;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+gap: 10px;
 `
 export const InputTitle = styled.input`
   padding-left: 17px;

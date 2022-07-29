@@ -21,12 +21,12 @@ import { Separator } from "../../components/Separator";
 
 export const Card = (props) => {
   const navigate = useNavigate();
-
+  // console.log(props.type)
   return (
     <Container>
       <UserP>Enviado por: {props.username}</UserP>
       <Separator height={18} />
-      {props.title.length > 20 ? (
+      {props.type === "posts" && props.title.length > 20 ? (
         <TitleP>{props.title.slice(0, 20) + "..."}</TitleP>
       ) : (
         <TitleP>{props.title}</TitleP>
@@ -52,12 +52,22 @@ export const Card = (props) => {
             onClick={() => props.downVote(props.id, -1)}
           />
         </UpDown>
-        <CommentsDiv onClick={() => GoTo(navigate, `/post/${props.id}`)}>
-          <CommentsIconStyle src={CommentsIcon} />
-          <NumbCommentStyle>
-            {props.commentCount ? props.commentCount : "0"}
-          </NumbCommentStyle>
-        </CommentsDiv>
+        {props.type === "posts" && (
+          <CommentsDiv onClick={() => GoTo(navigate, `/post/${props.id}`)}>
+            <CommentsIconStyle src={CommentsIcon} />
+            <NumbCommentStyle>
+              {props.commentCount ? props.commentCount : "0"}
+            </NumbCommentStyle>
+          </CommentsDiv>
+        )}
+        {props.type === "postsPrincipal" && (
+          <CommentsDiv>
+            <CommentsIconStyle src={CommentsIcon} />
+            <NumbCommentStyle>
+              {props.commentCount ? props.commentCount : "0"}
+            </NumbCommentStyle>
+          </CommentsDiv>
+        )}
       </Bar>
     </Container>
   );
