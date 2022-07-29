@@ -36,7 +36,7 @@ export const LoginPage = () => {
 
     try {
       const response = await axios.post(
-        "https://labeddit.herokuapp.com/users/login",
+        "https://labeddit-2.herokuapp.com/users/login",
         form
       );
       window.localStorage.setItem("token", response.data.token);

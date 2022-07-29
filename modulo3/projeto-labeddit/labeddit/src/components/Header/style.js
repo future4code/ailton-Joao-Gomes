@@ -5,11 +5,20 @@ export const Container = styled.div`
   background-color: #ededed;
   padding: 11px 0;
   padding-right: 29px;
-  padding-left: 46.5%;
+  padding-left: 29px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 `;
+export const Ximg = styled.img `
+width: 7%;
+`
+export const Teste = styled.div`
+width:54.5%;
+display: flex;
+align-items: center;
+justify-content:space-between;
+`
 export const LogoStyle = styled.img`
 width: 14.1%;
 `

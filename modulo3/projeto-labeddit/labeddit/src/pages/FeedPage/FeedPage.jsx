@@ -35,7 +35,7 @@ export const FeedPage = () => {
   const getPosts = async () => {
     const token = localStorage.getItem("token");
     try {
-      const response = await axios.get("https://labeddit.herokuapp.com/posts", {
+      const response = await axios.get("https://labeddit-2.herokuapp.com/posts", {
         headers: {
           Authorization: token,
         },
@@ -52,7 +52,7 @@ export const FeedPage = () => {
 
     try {
       const response = await axios.post(
-        "https://labeddit.herokuapp.com/posts",
+        "https://labeddit-2.herokuapp.com/posts",
         form,
         {
           headers: {
@@ -76,7 +76,7 @@ export const FeedPage = () => {
     };
     try {
       const response = await axios.post(
-        `https://labeddit.herokuapp.com/posts/${id}/votes`,
+        `https://labeddit-2.herokuapp.com/posts/${id}/votes`,
         body,
         {
           headers: {
@@ -96,7 +96,7 @@ export const FeedPage = () => {
     };
     try {
       const response = await axios.post(
-        `https://labeddit.herokuapp.com/posts/${id}/votes`,
+        `https://labeddit-2.herokuapp.com/posts/${id}/votes`,
         body,
         {
           headers: {
@@ -146,6 +146,7 @@ export const FeedPage = () => {
           posts?.map((data, index) => {
             return (
               <Card
+                
                 downVote={downVote}
                 upVote={upVote}
                 username={data.username}
