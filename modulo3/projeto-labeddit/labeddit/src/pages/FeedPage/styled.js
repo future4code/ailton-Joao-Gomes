@@ -20,7 +20,7 @@ padding-bottom: 36px;
 export const ContainerPosts = styled.div `
 width: 100%;
 padding: 0 32px;
-overflow: auto;
+/* overflow : auto; */
 display: flex;
 flex-direction: column;
 align-items: center;

@@ -98,7 +98,43 @@ export const PostPage = () => {
       );
     }
   });
-  console.log(form)
+
+    const createCommentVote = async (id, data) => {
+      const token = localStorage.getItem("token");
+      const body = {
+        direction: data,
+      };
+      try {
+        const response = await axios.post(
+          `https://labeddit-2.herokuapp.com/comments/${id}/votes`,
+          body,
+          {
+            headers: {
+              Authorization: token,
+            },
+          }
+        );
+        console.log("foi upvote");
+        getPostComments();
+      } catch (error) {}
+    };
+
+    const deleteCommentVote = async (id) => {
+      const token = localStorage.getItem("token");
+      try {
+        const response = await axios.delete(
+          `https://labeddit-2.herokuapp.com/comments/${id}/votes`,
+          {
+            headers: {
+              Authorization: token,
+            },
+          }
+        );
+        getPostComments();
+      } catch (error) {}
+    };
+    console.log(comments)
+  
   return (
     <Container>
       {console.log(form)}
@@ -134,6 +170,9 @@ export const PostPage = () => {
           comments?.map((item, index) => {
             return (
               <Card
+                deleteVote={deleteCommentVote}
+                createVote={createCommentVote}
+                userVote={item.userVote}
                 title={item.title}
                 username={item.username}
                 bodyText={item.body}

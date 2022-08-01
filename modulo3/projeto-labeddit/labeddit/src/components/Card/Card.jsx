@@ -15,13 +15,15 @@ import {
 } from "./style";
 import UpVoteIcon from "../../assets/upvote.png";
 import DownVoteIcon from "../../assets/downvote.png";
+import UpGreen from "../../assets/upgreen.png"
+import DownRed from '../../assets/downred.png'
 import CommentsIcon from "../../assets/comments.png";
 import { GoTo } from "../../functions/GoTo";
 import { Separator } from "../../components/Separator";
 
 export const Card = (props) => {
   const navigate = useNavigate();
-  // console.log(props.type)
+  console.log(props.userVote)
   return (
     <Container>
       <UserP>Enviado por: {props.username}</UserP>
@@ -42,15 +44,31 @@ export const Card = (props) => {
       <Separator height={22} />
       <Bar>
         <UpDown>
-          <VoteStyle
-            src={UpVoteIcon}
-            onClick={() => props.upVote(props.id, 1)}
-          />
+          {props.userVote !== 1 && (
+            <VoteStyle
+              src={UpVoteIcon}
+              onClick={() => props.createVote(props.id, 1)}
+            />
+          )}
+          {props.userVote === 1 && (
+            <VoteStyle
+              src={UpGreen}
+              onClick={() => props.deleteVote(props.id)}
+            />
+          )}
           <NumbVoteStyle>{props.voteSum ? props.voteSum : "0"}</NumbVoteStyle>
-          <VoteStyle
-            src={DownVoteIcon}
-            onClick={() => props.downVote(props.id, -1)}
-          />
+          {props.userVote !== -1 && (
+            <VoteStyle
+              src={DownVoteIcon}
+              onClick={() => props.createVote(props.id, -1)}
+            />
+          )}
+          {props.userVote === -1 && (
+            <VoteStyle
+              src={DownRed}
+              onClick={() => props.deleteVote(props.id)}
+            />
+          )}
         </UpDown>
         {props.type === "posts" && (
           <CommentsDiv onClick={() => GoTo(navigate, `/post/${props.id}`)}>

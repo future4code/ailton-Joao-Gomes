@@ -14,6 +14,6 @@ padding: 0 32px;
 export const ContainerComments = styled.div`
   width: 100%;
   padding: 0 32px;
-  overflow: auto;
+  /* overflow: auto; */
   
 `;

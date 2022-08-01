@@ -36,11 +36,14 @@ export const FeedPage = () => {
   const getPosts = async () => {
     const token = localStorage.getItem("token");
     try {
-      const response = await axios.get("https://labeddit-2.herokuapp.com/posts", {
-        headers: {
-          Authorization: token,
-        },
-      });
+      const response = await axios.get(
+        "https://labeddit-2.herokuapp.com/posts",
+        {
+          headers: {
+            Authorization: token,
+          },
+        }
+      );
       setPosts(response.data);
     } catch (error) {
       console.log(error);
@@ -70,7 +73,7 @@ export const FeedPage = () => {
     }
   };
 
-  const upVote = async (id, data) => {
+  const createPostVote = async (id, data) => {
     const token = localStorage.getItem("token");
     const body = {
       direction: data,
@@ -90,27 +93,24 @@ export const FeedPage = () => {
     } catch (error) {}
   };
 
-  const downVote = async (id, data) => {
+  const deletePostVote = async (id) => {
     const token = localStorage.getItem("token");
-    const body = {
-      direction: data,
-    };
     try {
-      const response = await axios.post(
+      const response = await axios.delete(
         `https://labeddit-2.herokuapp.com/posts/${id}/votes`,
-        body,
         {
           headers: {
             Authorization: token,
           },
         }
       );
-      console.log("foi downvote");
       getPosts();
-    } catch (error) {}
-  };
+    } catch (error) {
+      
+    }
+  }
 
-  // console.log(posts);
+  console.log(posts);
   return (
     <Container>
       <Header />
@@ -149,8 +149,9 @@ export const FeedPage = () => {
             return (
               <Card
                 type={"posts"}
-                downVote={downVote}
-                upVote={upVote}
+                deleteVote={deletePostVote}
+                userVote={data.userVote}
+                createVote={createPostVote}
                 username={data.username}
                 title={data.title}
                 bodyText={data.body}
