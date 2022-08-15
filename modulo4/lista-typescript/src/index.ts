@@ -121,27 +121,89 @@
 
 //Exercicio 6:
 
-// entrada
-
-type clientes = {
-    cliente:string,
-    saldoTotal:number,
-    debitos:number[]
-}
+// type clientes = {
+//     cliente:string,
+//     saldoTotal:number,
+//     debitos:number[]
+// }
     
-const clientela:clientes[] =[
-	{ cliente: "João", saldoTotal: 1000, debitos: [100, 200, 300] },
-	{ cliente: "Paula", saldoTotal: 7500, debitos: [200, 1040] },
-	{ cliente: "Pedro", saldoTotal: 10000, debitos: [5140, 6100, 100, 2000] },
-	{ cliente: "Luciano", saldoTotal: 100, debitos: [100, 200, 1700] },
-	{ cliente: "Artur", saldoTotal: 1800, debitos: [200, 300] },
-	{ cliente: "Soter", saldoTotal: 1200, debitos: [] }
-    ]
+// const clientela:clientes[] =[
+// 	{ cliente: "João", saldoTotal: 1000, debitos: [100, 200, 300] },
+// 	{ cliente: "Paula", saldoTotal: 7500, debitos: [200, 1040] },
+// 	{ cliente: "Pedro", saldoTotal: 10000, debitos: [5140, 6100, 100, 2000] },
+// 	{ cliente: "Luciano", saldoTotal: 100, debitos: [100, 200, 1700] },
+// 	{ cliente: "Artur", saldoTotal: 1800, debitos: [200, 300] },
+// 	{ cliente: "Soter", saldoTotal: 1200, debitos: [] }
+//     ]
 
-const function6 = (pingoliro:clientes[]):clientes[] => {
-    
+// const function6 = (pingoliro:clientes[]):clientes[] => {
 
+// 	let valorInicial = 0
     
-    return 
-}
-console.log(function6(clientela))
+// 	const newArray:any = pingoliro.map((data:clientes,index:number) =>{
+// 		const somas:number = data.debitos.reduce(
+//     (acumulador , valorAtual) => acumulador + valorAtual
+//     , valorInicial
+// );
+// 		const teste:number = data.saldoTotal - somas
+		
+// 		const teste2:number = data.saldoTotal = teste
+
+// 		const teste3:any = data.debitos = []
+
+// 		return data
+// 	})
+
+// 	const newArray2 = pingoliro.filter((tchengus:clientes) => {
+// 		return tchengus.saldoTotal < 0
+// 	})
+    
+//     return newArray2
+// }
+// console.table(function6(clientela))
+
+//Exercicio 7: 
+
+// const ajustaPreco = (preco :number): string => {
+// 	const valorAjustado: string = preco.toFixed(2).replace('.', ',')
+// 	return "R$ "+valorAjustado
+// }
+
+// type produtos = {
+// 	nome:string,
+// 	quantidade:number,
+// 	valorUnitario:number | string
+// }
+
+// const coisas:produtos[] =
+// [
+// 	{ nome: "MacMugffin", quantidade: 37, valorUnitario: 51.040},
+// 	{ nome: "Vassoura voadora", quantidade: 56, valorUnitario: 210.0},
+// 	{ nome: "Laço da verdade", quantidade: 32, valorUnitario: 571.5},
+// 	{ nome: "O precioso", quantidade: 1, valorUnitario: 9181.923},
+// 	{ nome: "Caneta de 250 cores", quantidade: 123, valorUnitario: 17},
+// 	{ nome: "Plumbus", quantidade: 13, valorUnitario: 140.44},
+// 	{ nome: "Pokebola", quantidade: 200, valorUnitario: 99.9915}
+// ]
+
+// const function7 = (bengus:produtos[]):produtos[] => {
+
+// 	const newArray:produtos[] = bengus.map((data:produtos,index) => {
+		
+// 		data.valorUnitario = ajustaPreco(data.valorUnitario as number)
+// 		return data
+// 	})
+
+// 	const compara = (a:produtos,b:produtos):number => {
+// 		if (a.quantidade>b.quantidade) return 1;
+// 		if (a.quantidade<b.quantidade) return -1;
+// 		return 0
+// 	}
+
+// 	return newArray.sort(compara)
+// }
+
+// console.table(function7(coisas))
+
+//Exercicio 8:
+
