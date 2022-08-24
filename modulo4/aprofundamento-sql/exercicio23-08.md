@@ -41,6 +41,7 @@ VALUES(
   "1949-04-18", 
   "male"
 );
+------------
 
 INSERT INTO Actor (id, nome, salary, birth_date, gender)
 VALUES(
